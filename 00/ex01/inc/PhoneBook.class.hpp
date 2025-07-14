@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/11 18:39:09 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:59:12 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 #define PHONEBOOK_CLASS_HPP
 
 //-‵,┊ needed libs by class
-#include <string>
+#include "Contact.class.hpp"
 
 // -->┊( PHONEBOOK )┊.´-★☆★
 
 class PhoneBook
 {
-private:
-	std::string name;
-	int age;
-
 public:
-	PhoneBook();
-	PhoneBook(const std::string &name, int age);
-	void setName(const std::string &newName);
-	void setAge(int newAge);
-	std::string getName() const;
-	int getAge() const;
-	void printInfo() const;
+	PhoneBook(void);  // constructor
+	~PhoneBook(void); // destructor
+
+	void addContact(void);
+	void searchBook(void);
+	void closeBook(void);
+
+private:
+	Contact contact_list[8];
 };
 
 #endif
