@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/15 17:13:28 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:56:34 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 //-‵,┊ needed libs by class
 #include "Contact.class.hpp"
+#include "phonebook.hpp"
 
 // -->┊( PHONEBOOK )┊.´-★☆★
 
