@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/16 17:56:34 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:50:19 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ public:
 private:
 	Contact contact_list[8];
 	int amount_of_contacts;
+
+	bool recieveInput(Contact *contact, int flag, std::string m);
+	bool validate_input(std::string input, int flag) const;
 };
 
 #endif

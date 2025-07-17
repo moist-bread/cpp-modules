@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/16 18:02:14 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:25:02 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,4 @@ int main(int argc, char **argv)
 					  << "we only accept \"ADD\", \"SEARCH\" or \"EXIT\"\n";
 	}
 	return (0);
-}
-
-bool validate_input(std::string input, char flag)
-{
-	(void)flag;
-	if (input.empty())
-		return (false);
-	if (flag == 'f')
-	{
-		for (size_t i = 0; input[i]; i++)
-			if (isalpha(input[i]))
-				return (false);
-	}
-	return (true);
 }
