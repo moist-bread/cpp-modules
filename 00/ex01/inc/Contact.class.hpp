@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:32:19 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:19:30 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ private:
 	std::string p_fname;
 	std::string p_lname;
 	std::string p_nname;
-	// std::string p_pnum;
-	// std::string p_secret;
 };
 
 #endif

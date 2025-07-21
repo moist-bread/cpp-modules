@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 10:27:12 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:14:14 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	(void)argv;
 	if (argc != 1)
-		return (std::cout << "the book only opens for those who are worthy" << std::endl, 2);
+		return (display_argc(), 2);
 	display_banner();
 	display_commands();
 	while (std::cin.good())
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 		else if (input.compare("EXIT") == 0)
 			return (book.closeBook(), 0);
 		else if (!std::cin.good())
-			std::cout << "\nbyebyeeee\n";
+			return(display_forced_exit(), 0);
 		else
 			display_incorrect_command(input);
 	}

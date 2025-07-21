@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/07/21 10:11:09 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/07/21 12:22:01 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,13 @@ $(OBJ_DIR):
 
 
 # -->┊( EXECUTION RULES )┊.´-★☆★
-exe0: all
-	$(VAL) ./$(NAME) "shhhhh... I think the students are asleep..."
+exe: all
+	./$(NAME)
 
 exe1: all
 	$(VAL) ./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
 
-exe2: all
+val: all
 	$(VAL) ./$(NAME)
 
 # -->┊( STANDARD RULES )┊.´-★☆★

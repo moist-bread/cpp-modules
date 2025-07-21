@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 10:24:22 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:23:33 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ void Contact::setFirstName(const std::string &name)
 {
 	std::string print;
 
-	std::cout << "set first name" << std::endl;
 	this->first_name = name;
 	this->p_fname = formatForPrint(name);
+	std::cout << "	✔ First Name SET";
+	std::cout << std::endl << std::endl;
 	return;
 }
 
@@ -38,9 +39,10 @@ void Contact::setLastName(const std::string &name)
 {
 	std::string print;
 
-	std::cout << "set last name" << std::endl;
 	this->last_name = name;
 	this->p_lname = formatForPrint(name);
+	std::cout << "	✔ Last Name SET";
+	std::cout << std::endl << std::endl;
 	return;
 }
 
@@ -48,9 +50,10 @@ void Contact::setNickName(const std::string &name)
 {
 	std::string print;
 
-	std::cout << "set nickname" << std::endl;
 	this->nickname = name;
 	this->p_nname = formatForPrint(name);
+	std::cout << "	✔ Nickname SET";
+	std::cout << std::endl << std::endl;
 	return;
 }
 
@@ -58,9 +61,9 @@ void Contact::setPhoneNumber(const std::string &num)
 {
 	std::string print;
 
-	std::cout << "set phone num" << std::endl;
 	this->phone_number = num;
-	// this->p_pnum = formatForPrint(num);
+	std::cout << "	✔ Phone Number SET";
+	std::cout << std::endl << std::endl;
 	return;
 }
 
@@ -68,9 +71,9 @@ void Contact::setDarkestSecret(const std::string &secret)
 {
 	std::string print;
 
-	std::cout << "set dark secret" << std::endl;
 	this->darkest_secret = secret;
-	// this->p_secret = formatForPrint(secret);
+	std::cout << "	✔ Darkest Secret SET";
+	std::cout << std::endl << std::endl;
 	return;
 }
 
@@ -90,8 +93,6 @@ std::string Contact::formatForPrint(const std::string &input) const
 
 void Contact::printContact(void) const
 {
-	// std::cout << "printing the contact!!"
-	// 		  << std::endl;
 
 	std::cout << std::right << std::setw(10)
 			  << this->p_fname << "|";
@@ -99,10 +100,7 @@ void Contact::printContact(void) const
 			  << this->p_lname << "|";
 	std::cout << std::right << std::setw(10)
 			  << this->p_nname << "|";
-	// std::cout << std::right << std::setw(10)
-	// 		  << this->p_pnum << "|";
-	// std::cout << std::right << std::setw(10)
-	// 		  << this->p_secret;
+
 	std::cout << std::endl;
 	return;
 }
