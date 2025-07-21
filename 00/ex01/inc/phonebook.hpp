@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 18:53:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:26:21 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ typedef enum s_input_type
 //-‵,┊ messages
 
 // -->┊( FUNCTION PROTOTYPES? )┊.´-★☆★
+
+void display_banner(void);
+void display_commands(void);
+void display_incorrect_command(std::string  input);
 
 #endif

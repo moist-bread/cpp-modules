@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:34:26 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:24:22 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Contact::Contact(void) : first_name(""), last_name(""), nickname(""), phone_number(""), darkest_secret("")
 {
-	std::cout << "contact constructor" << std::endl;
+	//std::cout << "contact constructor" << std::endl;
 	return;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "contact destructor" << std::endl;
+	//std::cout << "contact destructor" << std::endl;
 	return;
 }
 

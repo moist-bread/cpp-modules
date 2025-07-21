@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/07/14 18:12:30 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/07/21 10:11:09 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR	=	src
 OBJ_DIR	=	obj
 
 # -->┊( SOURCE AND OBJS )┊.´-★☆★
-SOURCE	=	main.cpp PhoneBook.class.cpp Contact.class.cpp 
+SOURCE	=	main.cpp interface.cpp PhoneBook.class.cpp Contact.class.cpp 
 
 SRC		=	$(addprefix $(SRC_DIR)/, $(SOURCE))
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SOURCE:.cpp=.o))

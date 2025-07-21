@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 19:03:16 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:41:22 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 PhoneBook::PhoneBook(void) : amount_of_contacts(0)
 {
-	std::cout << "PhoneBook constructor" << std::endl;
+	//std::cout << "PhoneBook constructor" << std::endl;
 	return;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook destructor" << std::endl;
+	//std::cout << "PhoneBook destructor" << std::endl;
 	return;
 }
 
@@ -29,7 +29,7 @@ void PhoneBook::addContact(void)
 	std::string input;
 	int idx;
 
-	std::cout << "Adding a Contact" << std::endl;
+	std::cout << std::endl << "\t════┈┈ADD┈┈════" << std::endl << std::endl;
 	if (this->amount_of_contacts == 8)
 	{
 		std::cout << "phone book is full\n"
@@ -64,6 +64,7 @@ void PhoneBook::addContact(void)
 
 void PhoneBook::searchBook(void) const
 {
+	std::cout << std::endl << "\t════┈┈SEARCH┈┈════" << std::endl << std::endl;
 	std::cout << "Searching the PhoneBook" << std::endl;
 	if (!this->amount_of_contacts)
 	{
@@ -122,7 +123,7 @@ void PhoneBook::searchBook(void) const
 		break;
 	}
 
-	std::cout << "\nDISPLAYING CONTACT No" << num << "\n\N";
+	std::cout << "\nDISPLAYING CONTACT No" << num << "\n\n";
 	this->contact_list[num - 1].displayInfo();
 
 	return;
@@ -130,7 +131,7 @@ void PhoneBook::searchBook(void) const
 
 void PhoneBook::closeBook(void)
 {
-	std::cout << "Bye bye book!!" << std::endl;
+	std::cout << std::endl << "\t════┈┈EXIT┈┈════" << std::endl << std::endl;
 	return;
 }
 

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:25:02 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:27:12 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ int main(int argc, char **argv)
 	(void)argv;
 	if (argc != 1)
 		return (std::cout << "the book only opens for those who are worthy" << std::endl, 2);
+	display_banner();
+	display_commands();
 	while (std::cin.good())
 	{
-		std::cout << "enter your command: ";
+		std::cout << "	▖ENTER YOUR COMMAND: ";
 		std::getline(std::cin, input);
 		if (input.compare("ADD") == 0)
 			book.addContact();
@@ -33,9 +35,7 @@ int main(int argc, char **argv)
 		else if (!std::cin.good())
 			std::cout << "\nbyebyeeee\n";
 		else
-			std::cout << "\"" << input
-					  << "\" is not a valid input\n"
-					  << "we only accept \"ADD\", \"SEARCH\" or \"EXIT\"\n";
+			display_incorrect_command(input);
 	}
 	return (0);
 }
