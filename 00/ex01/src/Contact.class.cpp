@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 14:23:33 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:03:59 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void Contact::setDarkestSecret(const std::string &secret)
 	return;
 }
 
+/// @brief creates a version of the input for listing print with 10 width
 std::string Contact::formatForPrint(const std::string &input) const
 {
 	std::string print;
@@ -91,6 +92,7 @@ std::string Contact::formatForPrint(const std::string &input) const
 	}
 }
 
+/// @brief printing contact listing
 void Contact::printContact(void) const
 {
 
@@ -105,16 +107,18 @@ void Contact::printContact(void) const
 	return;
 }
 
+/// @brief displays all info of contact
 void Contact::displayInfo(void) const
 {
-	std::cout << "display the info!!" << std::endl;
-
-	std::cout << "First Name: " << this->first_name << std::endl;
-	std::cout << "Last Name: " << this->last_name << std::endl;
-	std::cout << "Nickname: " << this->nickname << std::endl;
-	std::cout << "Phone Number: " << this->phone_number << std::endl;
-	std::cout << "Darkest Secret: " << this->darkest_secret << std::endl;
-	std::cout << std::endl;
-
+	std::cout << "	|▓▒░ First Name: " << this->first_name;
+	std::cout << std::endl << std::endl;
+	std::cout << "	|▓▒░ Last Name: " << this->last_name;
+	std::cout << std::endl << std::endl;
+	std::cout << "	|▓▒░ Nickname: " << this->nickname;
+	std::cout << std::endl << std::endl;
+	std::cout << "	|▓▒░ Phone Number: " << this->phone_number;
+	std::cout << std::endl << std::endl;
+	std::cout << "	|▓▒░ Darkest Secret: " << this->darkest_secret;
+	std::cout << std::endl << std::endl << std::endl;
 	return;
 }

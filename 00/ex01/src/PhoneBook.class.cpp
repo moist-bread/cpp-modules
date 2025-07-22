@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 18:45:06 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:02:03 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
+/// @brief Asks for user input to create a new contact 
 void PhoneBook::addContact(void)
 {
-	std::string input;
 	int idx;
 
 	std::cout << std::endl << "	════┈┈ADD┈┈════" << std::endl << std::endl;
@@ -62,7 +62,11 @@ void PhoneBook::addContact(void)
 	return;
 }
 
-
+/// @brief recieves input, validates it and processes it according to FLAG
+/// @param contact contact currently being filled out or NULL
+/// @param flag type of content being asked for
+/// @param m message to display in the prompt
+/// @return true on sucess, false on eof, fail or bad input
 bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
 {
 	std::string input;
@@ -72,10 +76,10 @@ bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
 		std::cout << "	▓▒░ ENTER " << m << ": ";
 		std::getline(std::cin, input);
 
-		if (!std::cin.good())
+		if (!std::cin.good()) // check for eof, fail or bad input
 			return(display_forced_exit(), false);
 
-		if (!validate_input(input, flag))
+		if (!validateInput(input, flag))
 			continue;
 
 		// -- set input as the corresponding parameter
@@ -108,7 +112,11 @@ bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
 	return (true);
 }
 
-bool PhoneBook::validate_input(std::string input, int flag) const
+/// @brief parses input according to FLAG
+/// @param input previously written user input
+/// @param flag type of content being asked for
+/// @return true when valid, false when invalid
+bool PhoneBook::validateInput(std::string input, int flag) const
 {
 	if (input.empty())
 		return (display_invalid_input(EMPTY), false);
@@ -150,45 +158,66 @@ bool PhoneBook::validate_input(std::string input, int flag) const
 	return (true);
 }
 
-
+/// @brief shows the contents of the phonebook in a list and then a specified contact
 void PhoneBook::searchBook(void) const
 {
 	std::cout << std::endl << "	════┈┈SEARCH┈┈════" << std::endl << std::endl;
 	display_book_top();
-	if (!this->amount_of_contacts)
+
+	// in case of no contacts
+	if (!this->amount_of_contacts) 
 	{
 		std::cout << "		PHONEBOOK IS EMPTY..." << std::endl;
-		return(display_book_bottom(0));
+		return(display_book_bottom(this->amount_of_contacts));
 	}
+
+	// contact table header
 	std::cout << std::endl << "\t      |";
-		std::cout << std::right << std::setw(10)
-				  << "index" << "|";
-	std::cout << std::right << std::setw(10)
-			  << "first name" << "|";
-	std::cout << std::right << std::setw(10)
-			  << "last name" << "|";
-	std::cout << std::right << std::setw(10)
-			  << "nickname" << "|";
+	std::cout << std::right << std::setw(10) << "index" << "|";
+	std::cout << std::right << std::setw(10) << "first name" << "|";
+	std::cout << std::right << std::setw(10) << "last name" << "|";
+	std::cout << std::right << std::setw(10) << "nickname" << "|";
 	std::cout << std::endl << std::endl;
+
+	// display a listing of all existing contacts
 	for (int i = 0; i < this->amount_of_contacts; i++)
 	{
 		std::cout << "\t      |";
-		std::cout << std::right << std::setw(10)
-				  << i + 1 << "|";
+		std::cout << std::right << std::setw(10) << i + 1 << "|";
 		this->contact_list[i].printContact();
 	}
 	display_book_bottom(this->amount_of_contacts);
-			  
+	
+	// get user index input
+	int num = inputContactIndex();
+	if (num == -1)
+		return (display_forced_exit());
+
+	// display the specified contact
+	std::cout << std::endl << std::endl;
+	std::cout << "	════┈┈ displaying contact no " << num << " ┈┈════";
+	std::cout << std::endl << std::endl;
+	this->contact_list[num - 1].displayInfo();
+
+	return;
+}
+
+/// @brief asks for user input and parses the number according to contact amount
+/// @return index inputted, -1 on eof, fail or bad input
+int PhoneBook::inputContactIndex(void) const
+{
 	std::string input;
 	int num;
 
 	while (std::cin.good())
 	{
-		std::cout << "	▖ENTER index TO SEARCH: ";
+		std::cout << "	▓▒░ ENTER index TO SEARCH: ";
 		std::getline(std::cin, input);
 
 		if (!std::cin.good())
-			return(display_forced_exit());
+			return(-1);
+		
+		// checks if it's a digit
 		if (!isdigit(input[0]) || input.length() > 1)
 		{
 			display_invalid_input(SEARCH);
@@ -199,27 +228,26 @@ void PhoneBook::searchBook(void) const
 		// to interpret them as the representation of a value of the proper type
 		std::istringstream(input) >> num;
 
+		// checks if its within existing contacts
 		if (num > this->amount_of_contacts || num < 1)
 		{
-			std::cout << std::endl
-					  << "\"" << num
-					  << "\" is out of bounds\n"
-					  << "we only accept 1";
+			std::cout << std::endl;
+			std::cout << "	┈┈┈ INVALID┈INPUT: ";
+			std::cout << "\"" << num << "\" is out of bounds" << std::endl;
+			std::cout << "	we only accept 1";
 			if (this->amount_of_contacts > 1)
 				std::cout << "-" << this->amount_of_contacts;
-			std::cout << "\ntry again\n";
+			std::cout << std::endl << "	try again ...";
+			std::cout << std::endl << std::endl;
 			continue;
 		}
-
+		
 		break;
 	}
-
-	std::cout << "\n	DISPLAYING CONTACT No" << num << "\n\n";
-	this->contact_list[num - 1].displayInfo();
-
-	return;
+	return (num);
 }
 
+/// @brief exits the program
 void PhoneBook::closeBook(void)
 {
 	std::cout << std::endl << "	════┈┈EXIT┈┈════" << std::endl << std::endl;

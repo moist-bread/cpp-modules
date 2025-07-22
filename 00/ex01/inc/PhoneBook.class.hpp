@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:50:19 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 08:36:06 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ private:
 	int amount_of_contacts;
 
 	bool recieveInput(Contact *contact, int flag, std::string m);
-	bool validate_input(std::string input, int flag) const;
+	bool validateInput(std::string input, int flag) const;
+	int inputContactIndex(void) const;
 };
 
 #endif
