@@ -6,11 +6,15 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 14:14:14 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:09:07 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/phonebook.hpp"
+#include "../inc/PhoneBook.class.hpp"
+
+static void display_argc(void);
+static void display_banner(void);
+static void display_commands(void);
 
 int main(int argc, char **argv)
 {
@@ -38,4 +42,52 @@ int main(int argc, char **argv)
 			display_incorrect_command(input);
 	}
 	return (0);
+}
+
+static void display_argc(void)
+{
+	std::cout << std::endl << std::endl;
+	std::cout << "\n\t════┈┈ the phonebook only opens in silence ┈┈════";
+	std::cout << std::endl << std::endl;
+}
+
+static void display_banner(void)
+{
+	std::cout << std::endl << std::endl;
+	std::cout << "\t░█▀█░█░█░█▀█░█▀█░█▀▀░█▀▄░█▀█░█▀█░█░█" << std::endl;
+	std::cout << "\t░█▀▀░█▀█░█░█░█░█░█▀▀░█▀▄░█░█░█░█░█▀▄ ░  ░ ░" << std::endl;
+	std::cout << "\t░▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀░▀░  ░░" << std::endl;
+}
+
+static void display_commands(void)
+{
+	std::cout << "\t╆───────────────────────────░─────────────░───────░─────╅" << std::endl;
+	std::cout << "\t╵	 _ _  _ _  _ _  _  _  _| _			╵" << std::endl;
+	std::cout << "\t╵	(_(_)| | || | |(_|| |(_|_\\		░	╵" << std::endl;
+	std::cout << "\t╆     	════┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈════		░	╅" << std::endl;
+	std::cout << "\t:							:" << std::endl;
+	std::cout << "\t	▖ ADD :  save a new contact" << std::endl;
+	std::cout << "\t:	▖ SEARCH:  display a specific contact		:" << std::endl;
+	std::cout << "\t╆     							╅" << std::endl;
+	std::cout << "\t╵	▖ EXIT						╵" << std::endl;
+	std::cout << "\t╵							╵" << std::endl;
+	std::cout << "\t╆───────────────────────────────────────────────░───░░──╅" << std::endl;
+	std::cout << std::endl << std::endl;
+}
+
+void display_incorrect_command(std::string  input)
+{
+	std::cout << std::endl;
+	std::cout << "	┈┈┈┈┈INVALID┈COMMAND┈┈┈┈┈" << std::endl << std::endl;
+	std::cout << "	\"" << input << "\" is not a valid input" << std::endl;
+	std::cout << "	the valid commands are: \"ADD\", \"SEARCH\" or \"EXIT\"\n";
+	std::cout << std::endl << std::endl;
+
+}
+
+void display_forced_exit(void)
+{
+	std::cout << std::endl << std::endl;
+	std::cout << "\n	════┈┈ forced exit ┈┈════";
+	std::cout << std::endl << std::endl;
 }

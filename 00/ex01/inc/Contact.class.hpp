@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/21 14:19:30 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 12:39:44 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #define CONTACT_CLASS_HPP
 
 //-‵,┊ needed libs by class
-#include <string>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
+#include <string>
 
 // -->┊( CONTACT )┊.´-★☆★
 
@@ -49,7 +49,7 @@ private:
 	std::string darkest_secret;
 
 	std::string formatForPrint(const std::string &name) const;
-	
+
 	// print version of the info
 
 	std::string p_fname;

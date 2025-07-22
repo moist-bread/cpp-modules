@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/22 09:02:03 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:06:59 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ void PhoneBook::addContact(void)
 	std::cout << "\n	════┈┈ contact added successfully ┈┈════";
 	std::cout << std::endl << std::endl;
 	return;
+}
+
+void PhoneBook::display_full_warn(void) const
+{
+	std::cout << "	┈┈┈ WARNING: your PHONEBOOK is full" << std::endl;
+	std::cout << "	by adding your oldest contact will be overwritten" << std::endl;
+	std::cout << "	do you wish to proceed? YES or NO";
+	std::cout << std::endl << std::endl;
 }
 
 /// @brief recieves input, validates it and processes it according to FLAG
@@ -158,6 +166,26 @@ bool PhoneBook::validateInput(std::string input, int flag) const
 	return (true);
 }
 
+void PhoneBook::display_invalid_input(int flag) const
+{
+	std::cout << std::endl;
+	std::cout << "	┈┈┈ INVALID┈INPUT: ";
+
+	if (flag == FIRST_NAME || flag == LAST_NAME)
+		std::cout << "should be only alphabetical characters";
+	else if (flag == NICK_NAME || flag == SECRET)
+		std::cout << "should be only ascii characters";
+	else if (flag == PHONE_NUM)
+		std::cout << "incorrectly formatted phone number";
+	else if (flag == FULL)
+		std::cout << "the valid options are: \"YES\" or \"NO\"";
+	else if (flag == SEARCH)
+		std::cout << "should be a numeric value from 1 until 8";
+	std::cout << std::endl << "	try again ...";
+	std::cout << std::endl << std::endl;
+	return ;
+}
+
 /// @brief shows the contents of the phonebook in a list and then a specified contact
 void PhoneBook::searchBook(void) const
 {
@@ -202,6 +230,27 @@ void PhoneBook::searchBook(void) const
 	return;
 }
 
+void PhoneBook::display_book_top(void) const
+{
+	std::cout << "\t╆───────────────────────────░─────────────░───────░─────╅" << std::endl;
+	std::cout << "\t╵	   .           .        .  			╵" << std::endl;
+	std::cout << "\t╵	._ |_  _ ._  _ |_  _  _ ;_/		░	╵" << std::endl;
+	std::cout << "\t╆	[_)[ )(_)[ )(/,[_)(_)(_)| \\			╅" << std::endl;
+	std::cout << "\t:	|						:" << std::endl;
+	std::cout << "\t     	════┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈════		 ░	" << std::endl;
+	
+}
+
+void PhoneBook::display_book_bottom(int n) const
+{
+	std::cout << "\t:							:" << std::endl;
+	std::cout << "\t╆     							╅" << std::endl;
+	std::cout << "\t╵	════┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈════	 " << n << "/8		╵" << std::endl;
+	std::cout << "\t╵							╵" << std::endl;
+	std::cout << "\t╆───────────────────────────────────────────────░───░░──╅" << std::endl;
+	std::cout << std::endl << std::endl;
+}
+
 /// @brief asks for user input and parses the number according to contact amount
 /// @return index inputted, -1 on eof, fail or bad input
 int PhoneBook::inputContactIndex(void) const
@@ -224,11 +273,8 @@ int PhoneBook::inputContactIndex(void) const
 			continue;
 		}
 
-		// Extracts and parses characters sequentially from the stream
-		// to interpret them as the representation of a value of the proper type
-		std::istringstream(input) >> num;
-
 		// checks if its within existing contacts
+		num = std::atoi(input.c_str());
 		if (num > this->amount_of_contacts || num < 1)
 		{
 			std::cout << std::endl;
