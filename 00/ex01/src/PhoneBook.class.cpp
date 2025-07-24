@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/22 13:06:59 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/24 07:31:11 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,24 +131,35 @@ bool PhoneBook::validateInput(std::string input, int flag) const
 
 	if (flag == FIRST_NAME || flag == LAST_NAME)
 	{
+		// only alpha
 		for (size_t i = 0; input[i]; i++)
 			if (!isalpha(input[i]))
 				return (display_invalid_input(flag), false);
 	}
 	else if (flag == NICK_NAME || flag == SECRET)
 	{
+		// only ascii
 		for (size_t i = 0; input[i]; i++)
 			if (!isascii(input[i]))
 				return (display_invalid_input(flag), false);
+		if (flag == NICK_NAME)
+		{
+			// no spaces
+			for (size_t i = 0; input[i]; i++)
+			if (isspace(input[i]))
+				return (display_invalid_input(flag), false);
+		}
 	}
 	else if (flag == PHONE_NUM)
 	{
 		int idx;
 		int sign = 0;
-
+		
+		// can start with +
 		if (input[0] == '+')
 			sign++;
 		idx = sign;
+		// afterwards can only be digits and between 3-16 in length
 		if (!isdigit(input[idx]))
 			return (display_invalid_input(flag), false);
 		while (input[++idx])
@@ -171,16 +182,29 @@ void PhoneBook::display_invalid_input(int flag) const
 	std::cout << std::endl;
 	std::cout << "	┈┈┈ INVALID┈INPUT: ";
 
-	if (flag == FIRST_NAME || flag == LAST_NAME)
+	// error message depending on FLAG
+	switch (flag)
+	{
+	case FIRST_NAME:
+	case LAST_NAME:
 		std::cout << "should be only alphabetical characters";
-	else if (flag == NICK_NAME || flag == SECRET)
-		std::cout << "should be only ascii characters";
-	else if (flag == PHONE_NUM)
+		break;
+	case NICK_NAME:
+		std::cout << "should be only ascii but no spaces";
+		break;
+	case PHONE_NUM:
 		std::cout << "incorrectly formatted phone number";
-	else if (flag == FULL)
+		break;
+	case SECRET:
+		std::cout << "should be only ascii characters";
+		break;
+	case FULL:
 		std::cout << "the valid options are: \"YES\" or \"NO\"";
-	else if (flag == SEARCH)
+		break;
+	case SEARCH:
 		std::cout << "should be a numeric value from 1 until 8";
+	}
+	
 	std::cout << std::endl << "	try again ...";
 	std::cout << std::endl << std::endl;
 	return ;
