@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/22 13:09:21 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/29 11:33:08 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ private:
 	Contact contact_list[8];
 	int amount_of_contacts;
 
-	void display_full_warn(void) const;
-	bool recieveInput(Contact *contact, int flag, std::string m);
-	bool validateInput(std::string input, int flag) const;
-	void display_invalid_input(int flag) const;
-	void display_book_top(void) const;
-	void display_book_bottom(int n) const;
-	int inputContactIndex(void) const;
+	void _displayFullWarn(void) const;
+	bool _recieveInput(Contact *contact, int flag, std::string m);
+	bool _validateInput(std::string input, int flag) const;
+	void _displayInvalidInput(int flag) const;
+	void _displayBookTop(void) const;
+	void _displayBookBottom(int n) const;
+	int _inputContactIndex(void) const;
 };
 
 #endif

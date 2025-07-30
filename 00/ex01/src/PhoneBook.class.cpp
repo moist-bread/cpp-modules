@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/24 07:31:11 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/07/29 11:33:04 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void PhoneBook::addContact(void)
 	if (this->amount_of_contacts == 8)
 	{
 		// -- phonebook is full, confirm to proceed
-		display_full_warn();
-		if (recieveInput(NULL, FULL, "your choice") == false)
+		_displayFullWarn();
+		if (_recieveInput(NULL, FULL, "your choice") == false)
 			return;
 		for (size_t i = 0; i < 7; i++)
 			this->contact_list[i] = this->contact_list[i + 1];
@@ -44,15 +44,15 @@ void PhoneBook::addContact(void)
 		idx = this->amount_of_contacts;
 
 	// -- ask for input to fill out contact
-	if (!recieveInput(&this->contact_list[idx], FIRST_NAME, "First Name"))
+	if (!_recieveInput(&this->contact_list[idx], FIRST_NAME, "First Name"))
 		return;
-	if (!recieveInput(&this->contact_list[idx], LAST_NAME, "Last Name"))
+	if (!_recieveInput(&this->contact_list[idx], LAST_NAME, "Last Name"))
 		return;
-	if (!recieveInput(&this->contact_list[idx], NICK_NAME, "Nickname"))
+	if (!_recieveInput(&this->contact_list[idx], NICK_NAME, "Nickname"))
 		return;
-	if (!recieveInput(&this->contact_list[idx], PHONE_NUM, "Phone Number"))
+	if (!_recieveInput(&this->contact_list[idx], PHONE_NUM, "Phone Number"))
 		return;
-	if (!recieveInput(&this->contact_list[idx], SECRET, "Darkest Secret"))
+	if (!_recieveInput(&this->contact_list[idx], SECRET, "Darkest Secret"))
 		return;
 
 	if (this->amount_of_contacts < 8)
@@ -62,7 +62,7 @@ void PhoneBook::addContact(void)
 	return;
 }
 
-void PhoneBook::display_full_warn(void) const
+void PhoneBook::_displayFullWarn(void) const
 {
 	std::cout << "	┈┈┈ WARNING: your PHONEBOOK is full" << std::endl;
 	std::cout << "	by adding your oldest contact will be overwritten" << std::endl;
@@ -75,7 +75,7 @@ void PhoneBook::display_full_warn(void) const
 /// @param flag type of content being asked for
 /// @param m message to display in the prompt
 /// @return true on sucess, false on eof, fail or bad input
-bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
+bool PhoneBook::_recieveInput(Contact *contact, int flag, std::string m)
 {
 	std::string input;
 
@@ -87,7 +87,7 @@ bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
 		if (!std::cin.good()) // check for eof, fail or bad input
 			return(display_forced_exit(), false);
 
-		if (!validateInput(input, flag))
+		if (!_validateInput(input, flag))
 			continue;
 
 		// -- set input as the corresponding parameter
@@ -124,30 +124,30 @@ bool PhoneBook::recieveInput(Contact *contact, int flag, std::string m)
 /// @param input previously written user input
 /// @param flag type of content being asked for
 /// @return true when valid, false when invalid
-bool PhoneBook::validateInput(std::string input, int flag) const
+bool PhoneBook::_validateInput(std::string input, int flag) const
 {
 	if (input.empty())
-		return (display_invalid_input(EMPTY), false);
+		return (_displayInvalidInput(EMPTY), false);
 
 	if (flag == FIRST_NAME || flag == LAST_NAME)
 	{
 		// only alpha
 		for (size_t i = 0; input[i]; i++)
 			if (!isalpha(input[i]))
-				return (display_invalid_input(flag), false);
+				return (_displayInvalidInput(flag), false);
 	}
 	else if (flag == NICK_NAME || flag == SECRET)
 	{
 		// only ascii
 		for (size_t i = 0; input[i]; i++)
 			if (!isascii(input[i]))
-				return (display_invalid_input(flag), false);
+				return (_displayInvalidInput(flag), false);
 		if (flag == NICK_NAME)
 		{
 			// no spaces
 			for (size_t i = 0; input[i]; i++)
 			if (isspace(input[i]))
-				return (display_invalid_input(flag), false);
+				return (_displayInvalidInput(flag), false);
 		}
 	}
 	else if (flag == PHONE_NUM)
@@ -161,23 +161,23 @@ bool PhoneBook::validateInput(std::string input, int flag) const
 		idx = sign;
 		// afterwards can only be digits and between 3-16 in length
 		if (!isdigit(input[idx]))
-			return (display_invalid_input(flag), false);
+			return (_displayInvalidInput(flag), false);
 		while (input[++idx])
 			if (!isdigit(input[idx]) || idx >= 17)
-				return (display_invalid_input(flag), false);
+				return (_displayInvalidInput(flag), false);
 		if ((sign && idx < 5) || (!sign && idx < 3))
-			return (display_invalid_input(flag), false);
+			return (_displayInvalidInput(flag), false);
 	}
 	else if (flag == FULL)
 	{
 		if (input.compare("YES") && input.compare("NO"))
-			return (display_invalid_input(flag), false);
+			return (_displayInvalidInput(flag), false);
 	}
 
 	return (true);
 }
 
-void PhoneBook::display_invalid_input(int flag) const
+void PhoneBook::_displayInvalidInput(int flag) const
 {
 	std::cout << std::endl;
 	std::cout << "	┈┈┈ INVALID┈INPUT: ";
@@ -214,13 +214,13 @@ void PhoneBook::display_invalid_input(int flag) const
 void PhoneBook::searchBook(void) const
 {
 	std::cout << std::endl << "	════┈┈SEARCH┈┈════" << std::endl << std::endl;
-	display_book_top();
+	_displayBookTop();
 
 	// in case of no contacts
 	if (!this->amount_of_contacts) 
 	{
 		std::cout << "		PHONEBOOK IS EMPTY..." << std::endl;
-		return(display_book_bottom(this->amount_of_contacts));
+		return(_displayBookBottom(this->amount_of_contacts));
 	}
 
 	// contact table header
@@ -238,10 +238,10 @@ void PhoneBook::searchBook(void) const
 		std::cout << std::right << std::setw(10) << i + 1 << "|";
 		this->contact_list[i].printContact();
 	}
-	display_book_bottom(this->amount_of_contacts);
+	_displayBookBottom(this->amount_of_contacts);
 	
 	// get user index input
-	int num = inputContactIndex();
+	int num = _inputContactIndex();
 	if (num == -1)
 		return (display_forced_exit());
 
@@ -254,7 +254,7 @@ void PhoneBook::searchBook(void) const
 	return;
 }
 
-void PhoneBook::display_book_top(void) const
+void PhoneBook::_displayBookTop(void) const
 {
 	std::cout << "\t╆───────────────────────────░─────────────░───────░─────╅" << std::endl;
 	std::cout << "\t╵	   .           .        .  			╵" << std::endl;
@@ -265,7 +265,7 @@ void PhoneBook::display_book_top(void) const
 	
 }
 
-void PhoneBook::display_book_bottom(int n) const
+void PhoneBook::_displayBookBottom(int n) const
 {
 	std::cout << "\t:							:" << std::endl;
 	std::cout << "\t╆     							╅" << std::endl;
@@ -277,7 +277,7 @@ void PhoneBook::display_book_bottom(int n) const
 
 /// @brief asks for user input and parses the number according to contact amount
 /// @return index inputted, -1 on eof, fail or bad input
-int PhoneBook::inputContactIndex(void) const
+int PhoneBook::_inputContactIndex(void) const
 {
 	std::string input;
 	int num;
@@ -293,7 +293,7 @@ int PhoneBook::inputContactIndex(void) const
 		// checks if it's a digit
 		if (!isdigit(input[0]) || input.length() > 1)
 		{
-			display_invalid_input(SEARCH);
+			_displayInvalidInput(SEARCH);
 			continue;
 		}
 
