@@ -6,89 +6,80 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/30 12:22:22 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/12 22:38:24 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/* static void display_argc(void);
-static void display_banner(void);
-static void display_commands(void); */
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
-int main(int argc, char **argv)
-{
-
-	(void)argc;
-	(void)argv;
-	
-	/* if (argc != 1)
-		return (display_argc(), 2);
-	display_banner();
-	display_commands();
-	while (std::cin.good())
-	{
-		std::cout << "	▖ENTER YOUR COMMAND: ";
-		std::getline(std::cin, input);
-		if (input.compare("ADD") == 0)
-			book.addContact();
-		else if (input.compare("SEARCH") == 0)
-			book.searchBook();
-		else if (input.compare("EXIT") == 0)
-			return (book.closeBook(), 0);
-		else if (!std::cin.good())
-			return(display_forced_exit(), 0);
-		else
-			display_incorrect_command(input);
-	} */
-	return (0);
-}
-/* 
-static void display_argc(void)
-{
-	std::cout << std::endl << std::endl;
-	std::cout << "\n\t════┈┈ the phonebook only opens in silence ┈┈════";
-	std::cout << std::endl << std::endl;
-}
-
-static void display_banner(void)
-{
-	std::cout << std::endl << std::endl;
-	std::cout << "\t░█▀█░█░█░█▀█░█▀█░█▀▀░█▀▄░█▀█░█▀█░█░█" << std::endl;
-	std::cout << "\t░█▀▀░█▀█░█░█░█░█░█▀▀░█▀▄░█░█░█░█░█▀▄ ░  ░ ░" << std::endl;
-	std::cout << "\t░▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀░▀░  ░░" << std::endl;
-}
-
-static void display_commands(void)
-{
-	std::cout << "\t╆───────────────────────────░─────────────░───────░─────╅" << std::endl;
-	std::cout << "\t╵	 _ _  _ _  _ _  _  _  _| _			╵" << std::endl;
-	std::cout << "\t╵	(_(_)| | || | |(_|| |(_|_\\		░	╵" << std::endl;
-	std::cout << "\t╆     	════┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈════		░	╅" << std::endl;
-	std::cout << "\t:							:" << std::endl;
-	std::cout << "\t	▖ ADD :  save a new contact" << std::endl;
-	std::cout << "\t:	▖ SEARCH:  display a specific contact		:" << std::endl;
-	std::cout << "\t╆     							╅" << std::endl;
-	std::cout << "\t╵	▖ EXIT						╵" << std::endl;
-	std::cout << "\t╵							╵" << std::endl;
-	std::cout << "\t╆───────────────────────────────────────────────░───░░──╅" << std::endl;
-	std::cout << std::endl << std::endl;
-}
-
-void display_incorrect_command(std::string  input)
+int main(void)
 {
 	std::cout << std::endl;
-	std::cout << "	┈┈┈┈┈INVALID┈COMMAND┈┈┈┈┈" << std::endl << std::endl;
-	std::cout << "	\"" << input << "\" is not a valid input" << std::endl;
-	std::cout << "	the valid commands are: \"ADD\", \"SEARCH\" or \"EXIT\"\n";
-	std::cout << std::endl << std::endl;
+	std::cout << BMAG << "ZOMBIES FROM STACK VS. HEAP...";
+	std::cout << DEF << std::endl;
+	std::cout << MAG << "plants vs. zombies edition";
+	std::cout << DEF << std::endl << std::endl;
+	
+	// demo of heap Zombies
+	std::cout << MAG << ">>┈┈┈>   HEAP Zombies 🧠";
 
-}
+	std::cout << DEF << std::endl << std::endl;
+	std::cout << BLU << "using functions new and delete:";
+	std::cout << DEF << std::endl;
+	Zombie *Engineer = new Zombie("Engineer");
+	delete Engineer;
+	
+	std::cout << std::endl;
+	std::cout << BLU << "using new and clear() and delete on a vector iterator of All-Star:";
+	std::cout << DEF << std::endl;
+	std::string CDBNames[] = {"All-Star (1)", "All-Star (2)", "All-Star (3)"};
+	std::vector<Zombie> *AllStar = new std::vector<Zombie>(&CDBNames[0], &CDBNames[3]);
+	AllStar->clear();
+	delete AllStar;
 
-void display_forced_exit(void)
-{
+	std::cout << std::endl;
+	std::cout << BLU << "newZombie function:";
+	std::cout << DEF << std::endl;
+	Zombie *CaptainDeadbeard = newZombie("Captain Deadbeard");
+	delete CaptainDeadbeard;
 	std::cout << std::endl << std::endl;
-	std::cout << "\n	════┈┈ forced exit ┈┈════";
+	
+	// demo of stack Zombies
+	std::cout << MAG << ">>┈┈┈>   STACK Zombies 🧠";
+	
+	std::cout << DEF << std::endl << std::endl;
+	std::cout << BLU << "variable declaration of a Foot Soldier:";
+	std::cout << DEF << std::endl;
+	Zombie FootSoldier("Foot Soldier");
+	
+	std::cout << std::endl;
+	std::cout << BLU << "array of Imps:";
+	std::cout << DEF << std::endl;
+	Zombie Imp[3] = { Zombie("Imp (1)"), Zombie("Imp (2)"), Zombie("Imp (3)") };
+
+	std::cout << std::endl;
+	std::cout << BLU << "vector iterator of Super_Brainz:";
+	std::cout << DEF << std::endl;
+	std::string SBNames[] = {"Super Brainz (1)", "Super Brainz (2)", "Super Brainz (3)"};
+	std::vector<Zombie> Super_Brainz(&SBNames[0], &SBNames[3]);
+
+	std::cout << std::endl;
+	std::cout << BLU << "randomChump function:";
+	std::cout << DEF << std::endl;
+	randomChump("Scientist");
+	
 	std::cout << std::endl << std::endl;
+	std::cout << "the memory used for Stack Zombies is automatic";
+	std::cout << std::endl;
+	std::cout << "and limited by the scope of the function";
+	std::cout << std::endl;
+	std::cout << "whilst heap Zombies can be made a new";
+	std::cout << std::endl;
+	std::cout << "and need to be deleted at will";
+	std::cout << DEF << std::endl << std::endl << std::endl;
+
+	return (0);
 }
- */

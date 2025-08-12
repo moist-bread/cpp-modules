@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/30 12:25:02 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/12 22:44:41 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,36 @@
 #define ZOMBIE_HPP
 
 //-‵,┊ needed libs by class
-#include <cstdlib>
-#include <iomanip>
+#include <new>
 #include <iostream>
 #include <string>
+#include <vector>
+
+//-‵,┊ color defines
+#define BLK "\e[0;30m"
+#define GRN "\e[0;32m"
+#define BLU "\e[0;34m"
+#define MAG "\e[0;35m"
+#define BMAG "\e[1;35m"
+#define URED "\e[4;31m"
+#define UCYN "\e[4;36m"
+#define GRNB "\e[42m"
+#define DEF "\e[0m"
+
 
 // -->┊( ZOMBIE )┊.´-★☆★
 
 class Zombie
 {
 public:
-	Zombie(void);  // constructor
+	Zombie(std::string birth_name);  // name constructor
 	~Zombie(void); // destructor
 
 	void announce( void );
 
 private:
 	std::string name;
-	/* Contact contact_list[8];
-
-	void _displayFullWarn(void) const;
-	bool _recieveInput(Contact *contact, int flag, std::string m);
-	bool _validateInput(std::string input, int flag) const;
-	void _displayInvalidInput(int flag) const;
-	void _displayBookTop(void) const;
-	void _displayBookBottom(int n) const;
-	int _inputContactIndex(void) const; */
+	
 };
 
 #endif

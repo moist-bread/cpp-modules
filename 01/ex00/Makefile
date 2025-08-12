@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/07/30 12:19:59 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/08/12 19:26:23 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,9 @@ $(OBJ_DIR):
 exe: all
 	./$(NAME)
 
-exe1: all
-	$(VAL) ./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+rexe: re
+	@echo "\n"
+	./$(NAME)
 
 val: all
 	$(VAL) ./$(NAME)
@@ -64,7 +65,7 @@ fclean: clean
 re:	fclean all
 	$(M_RE)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re rexe
 
 
 # -->┊( COSMETICS )┊.´-★☆★
