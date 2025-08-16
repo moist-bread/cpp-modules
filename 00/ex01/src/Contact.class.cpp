@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/29 11:28:55 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:43:11 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Contact::Contact(void) : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("")
 {
 	//std::cout << "contact constructor" << std::endl;
-	return;
+	return ;
 }
 
 Contact::~Contact(void)
 {
 	//std::cout << "contact destructor" << std::endl;
-	return;
+	return ;
 }
 
 void Contact::setFirstName(const std::string &name)
@@ -32,7 +32,7 @@ void Contact::setFirstName(const std::string &name)
 	this->_p_fname = _formatForPrint(name);
 	std::cout << "	✔ First Name SET";
 	std::cout << std::endl << std::endl;
-	return;
+	return ;
 }
 
 void Contact::setLastName(const std::string &name)
@@ -43,7 +43,7 @@ void Contact::setLastName(const std::string &name)
 	this->_p_lname = _formatForPrint(name);
 	std::cout << "	✔ Last Name SET";
 	std::cout << std::endl << std::endl;
-	return;
+	return ;
 }
 
 void Contact::setNickName(const std::string &name)
@@ -54,7 +54,7 @@ void Contact::setNickName(const std::string &name)
 	this->_p_nname = _formatForPrint(name);
 	std::cout << "	✔ Nickname SET";
 	std::cout << std::endl << std::endl;
-	return;
+	return ;
 }
 
 void Contact::setPhoneNumber(const std::string &num)
@@ -64,7 +64,7 @@ void Contact::setPhoneNumber(const std::string &num)
 	this->_phone_number = num;
 	std::cout << "	✔ Phone Number SET";
 	std::cout << std::endl << std::endl;
-	return;
+	return ;
 }
 
 void Contact::setDarkestSecret(const std::string &secret)
@@ -74,7 +74,7 @@ void Contact::setDarkestSecret(const std::string &secret)
 	this->_darkest_secret = secret;
 	std::cout << "	✔ Darkest Secret SET";
 	std::cout << std::endl << std::endl;
-	return;
+	return ;
 }
 
 /// @brief creates a version of the input for listing print with 10 width
@@ -104,7 +104,7 @@ void Contact::printContact(void) const
 			  << this->_p_nname << "|";
 
 	std::cout << std::endl;
-	return;
+	return ;
 }
 
 /// @brief displays all info of contact
@@ -120,5 +120,5 @@ void Contact::displayInfo(void) const
 	std::cout << std::endl << std::endl;
 	std::cout << "	|▓▒░ Darkest Secret: " << this->_darkest_secret;
 	std::cout << std::endl << std::endl << std::endl;
-	return;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/29 11:33:08 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:46:10 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void display_incorrect_command(std::string input);
 void display_forced_exit(void);
 
 // -->┊( DEFINES )┊.´-★☆★
+
 /// @brief flags for input types
 typedef enum s_input_type
 {
@@ -46,16 +47,16 @@ public:
 
 	void addContact(void);
 	void searchBook(void) const;
-	void closeBook(void);
+	void closeBook(void) const;
 
 private:
 	Contact contact_list[8];
 	int amount_of_contacts;
 
 	void _displayFullWarn(void) const;
-	bool _recieveInput(Contact *contact, int flag, std::string m);
-	bool _validateInput(std::string input, int flag) const;
-	void _displayInvalidInput(int flag) const;
+	bool _recieveInput(Contact *contact, int type, std::string m);
+	bool _validateInput(std::string input, int type) const;
+	void _displayInvalidInput(int type) const;
 	void _displayBookTop(void) const;
 	void _displayBookBottom(int n) const;
 	int _inputContactIndex(void) const;

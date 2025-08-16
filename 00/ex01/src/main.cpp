@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/22 13:09:07 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:43:30 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		else if (input.compare("EXIT") == 0)
 			return (book.closeBook(), 0);
 		else if (!std::cin.good())
-			return(display_forced_exit(), 0);
+			return (display_forced_exit(), 0);
 		else
 			display_incorrect_command(input);
 	}
@@ -79,7 +79,7 @@ void display_incorrect_command(std::string  input)
 {
 	std::cout << std::endl;
 	std::cout << "	┈┈┈┈┈INVALID┈COMMAND┈┈┈┈┈" << std::endl << std::endl;
-	std::cout << "	\"" << input << "\" is not a valid input" << std::endl;
+	std::cout << "	the comand you entered is not a valid input" << std::endl;
 	std::cout << "	the valid commands are: \"ADD\", \"SEARCH\" or \"EXIT\"\n";
 	std::cout << std::endl << std::endl;
 
