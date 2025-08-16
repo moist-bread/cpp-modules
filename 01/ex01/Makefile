@@ -6,12 +6,12 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/08/16 15:17:41 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/08/12 22:53:53 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	phonebook
+NAME	=	zombie_horde
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 COMP	=	c++
@@ -19,14 +19,12 @@ CFLAGS	=	-Wall -Wextra -Wno-unused -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 # -->┊( DIRECTORIES )┊.´-★☆★
-SRC_DIR	=	src
 OBJ_DIR	=	obj
 
 # -->┊( SOURCE AND OBJS )┊.´-★☆★
-SOURCE	=	main.cpp PhoneBook.class.cpp Contact.class.cpp 
+SRC	=	main.cpp Zombie.cpp zombieHorde.cpp 
 
-SRC		=	$(addprefix $(SRC_DIR)/, $(SOURCE))
-OBJS	=	$(addprefix $(OBJ_DIR)/, $(SOURCE:.cpp=.o))
+OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 
 # -->┊( COMPILATION RULES )┊.´-★☆★
@@ -37,7 +35,7 @@ $(NAME): $(OBJS)
 	$(M_COM)
 	@$(COMP) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: ./%.cpp | $(OBJ_DIR)
 	@$(COMP) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
@@ -48,8 +46,9 @@ $(OBJ_DIR):
 exe: all
 	./$(NAME)
 
-exe1: all
-	$(VAL) ./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+rexe: re
+	@echo "\n"
+	./$(NAME)
 
 val: all
 	$(VAL) ./$(NAME)
@@ -66,7 +65,7 @@ fclean: clean
 re:	fclean all
 	$(M_RE)
 
-.PHONY: all clean fclean re val exe exe1
+.PHONY: all clean fclean re rexe
 
 
 # -->┊( COSMETICS )┊.´-★☆★
