@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/16 10:46:10 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/19 00:01:44 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cstdlib>
 
 // -->┊( EXTRA FUNCTION PROTOTYPES )┊.´-★☆★
-void display_incorrect_command(std::string input);
+void display_incorrect_command(void);
 void display_forced_exit(void);
 
 // -->┊( DEFINES )┊.´-★☆★

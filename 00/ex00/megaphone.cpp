@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/07/11 11:48:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/19 00:06:06 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 			for (size_t j = 0; argv[i][j]; j++)
-				std::putchar(std::toupper(argv[i][j]));
+				std::cout << (char)std::toupper(argv[i][j]);
 	}
 	std::cout << std::endl;
 	return (0);

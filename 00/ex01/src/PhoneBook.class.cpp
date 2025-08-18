@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/16 10:46:13 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/19 00:03:22 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,7 @@ int PhoneBook::_inputContactIndex(void) const
 	std::string input;
 	int num;
 
+	num = -1;
 	while (std::cin.good())
 	{
 		std::cout << "	▓▒░ ENTER index TO SEARCH: ";

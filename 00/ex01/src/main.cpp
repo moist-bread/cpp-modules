@@ -6,12 +6,14 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/16 10:43:30 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/19 00:14:24 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.class.hpp"
+#include <csignal>
 
+void		signal_handler(int signal);
 static void display_argc(void);
 static void display_banner(void);
 static void display_commands(void);
@@ -22,6 +24,7 @@ int main(int argc, char **argv)
 	std::string input;
 
 	(void)argv;
+	std::signal(SIGINT, signal_handler);
 	if (argc != 1)
 		return (display_argc(), 2);
 	display_banner();
@@ -39,9 +42,15 @@ int main(int argc, char **argv)
 		else if (!std::cin.good())
 			return (display_forced_exit(), 0);
 		else
-			display_incorrect_command(input);
+			display_incorrect_command();
 	}
 	return (0);
+}
+
+void signal_handler(int signal)
+{
+    std::cout << std::endl;
+	exit (signal);
 }
 
 static void display_argc(void)
@@ -75,7 +84,7 @@ static void display_commands(void)
 	std::cout << std::endl << std::endl;
 }
 
-void display_incorrect_command(std::string  input)
+void display_incorrect_command(void)
 {
 	std::cout << std::endl;
 	std::cout << "	┈┈┈┈┈INVALID┈COMMAND┈┈┈┈┈" << std::endl << std::endl;
