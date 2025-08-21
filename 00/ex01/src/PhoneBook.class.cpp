@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/19 00:03:22 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:46:45 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ bool PhoneBook::_validateInput(std::string input, int type) const
 	{
 		// only ascii
 		for (size_t i = 0; input[i]; i++)
-			if (!isascii(input[i]))
+			if (!isprint(input[i]))
 				return (_displayInvalidInput(type), false);
 		if (type == NICK_NAME)
 		{
@@ -192,13 +192,13 @@ void PhoneBook::_displayInvalidInput(int type) const
 		std::cout << "should be only alphabetical characters";
 		break ;
 	case NICK_NAME:
-		std::cout << "should be only ascii but no spaces";
+		std::cout << "should be only printable characters but no spaces";
 		break ;
 	case PHONE_NUM:
 		std::cout << "incorrectly formatted phone number";
 		break ;
 	case SECRET:
-		std::cout << "should be only ascii characters";
+		std::cout << "should be only printable characters";
 		break ;
 	case FULL:
 		std::cout << "the valid options are: \"YES\" or \"NO\"";
