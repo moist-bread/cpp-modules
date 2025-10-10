@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/12 22:38:24 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/06 13:00:21 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
 	delete Engineer;
 	
 	std::cout << std::endl;
-	std::cout << BLU << "using new and clear() and delete on a vector iterator of All-Star:";
+	std::cout << BLU << "using new, clear() and delete on a vector iterator of All-Star:";
 	std::cout << DEF << std::endl;
 	std::string CDBNames[] = {"All-Star (1)", "All-Star (2)", "All-Star (3)"};
 	std::vector<Zombie> *AllStar = new std::vector<Zombie>(&CDBNames[0], &CDBNames[3]);

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/12 22:44:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/06 13:19:17 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <new>
 #include <iostream>
 #include <string>
-#include <vector>
 
 //-‵,┊ color defines
 #define BLK "\e[0;30m"
@@ -37,9 +36,11 @@
 class Zombie
 {
 public:
+	Zombie(void);  // default constructor
 	Zombie(std::string birth_name);  // name constructor
 	~Zombie(void); // destructor
 
+	void set_name(const std::string name );
 	void announce( void );
 
 private:

@@ -6,12 +6,12 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/10/06 13:07:41 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/10/06 13:07:36 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	moar_brainz!
+NAME	=	hi_this_is_brain
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 COMP	=	c++
@@ -22,7 +22,7 @@ VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 OBJ_DIR	=	obj
 
 # -->┊( SOURCE AND OBJS )┊.´-★☆★
-SRC		=	main.cpp Zombie.cpp zombieHorde.cpp 
+SRC		=	main.cpp
 
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/08/12 22:53:19 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/06 12:26:03 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-	Zombie random_chump(name);
-	random_chump.announce();
+	Zombie *horde;
+	horde = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		horde[i].set_name(name);
 
-	return (NULL);
+	return (horde);
 }
