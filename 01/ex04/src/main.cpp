@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/22 20:13:17 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/22 22:50:07 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ std::string sed_string(std::string line, std::string s1, std::string s2);
 int main(int argc, char **argv)
 {
 	std::cout << std::endl;
-	std::cout << BLU << ">>┈┈┈>   SED IS FOR LOSERS 👁‍🗨";
+	std::cout << BLU ">>┈┈┈>   SED IS FOR LOSERS 👁‍🗨";
 	std::cout << DEF << std::endl << std::endl;
 	
 	if (argc != 4)

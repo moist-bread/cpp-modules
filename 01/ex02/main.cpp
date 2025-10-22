@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/06 13:27:01 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/22 22:53:17 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 int main(void)
 {
 	std::cout << std::endl;
-	std::cout << MAG << ">>┈┈┈>   HI THIS IS BRAIN 🧠";
+	std::cout << MAG ">>┈┈┈>   HI THIS IS BRAIN 🧠";
 	std::cout << DEF << std::endl;
 	
 	std::string string = "HI THIS IS BRAIN";
@@ -35,19 +35,19 @@ int main(void)
 	std::string &stringREF = string;
 	
 	std::cout << DEF << std::endl;
-	std::cout << "The memory address of the string variable: " << BMAG << &string;
+	std::cout << "The memory address of the string variable: " BMAG << &string;
 	std::cout << DEF << std::endl;
-	std::cout << "The memory address held by stringPTR:      " << BMAG << &stringPTR;
+	std::cout << "The memory address held by stringPTR:      " BMAG << &stringPTR;
 	std::cout << DEF << std::endl;
-	std::cout << "The memory address held by stringREF:      " << BMAG << &stringREF;
+	std::cout << "The memory address held by stringREF:      " BMAG << &stringREF;
 	std::cout << DEF << std::endl << std::endl;
 
 	std::cout << DEF << std::endl;
-	std::cout << "The value of the string variable:          " << BLU << string;
+	std::cout << "The value of the string variable:          " BLU << string;
 	std::cout << DEF << std::endl;
-	std::cout << "The value pointed to by stringPTR:         " << BLU << stringPTR;
+	std::cout << "The value pointed to by stringPTR:         " BLU << stringPTR;
 	std::cout << DEF << std::endl;
-	std::cout << "The value pointed to by stringREF:         " << BLU << stringREF;
+	std::cout << "The value pointed to by stringREF:         " BLU << stringREF;
 	std::cout << DEF << std::endl;
 	
 	return (0);
