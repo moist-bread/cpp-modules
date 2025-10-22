@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/21 14:25:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:44:17 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
 {
-	std::cout << DEF << GRN << "the HumanA ";
-	std::cout << UCYN << "HumanA constructor";
+	std::cout << GRN << "[ " << this->_name << " ]";
+	std::cout << " the HumanA ";
+	std::cout << UCYN << "has been born";
 	std::cout << DEF << std::endl;
 	return;
 }
 
 HumanA::~HumanA(void)
 {
-	std::cout << BLK << GRNB << "[ " << this->_name << " ]";
-	std::cout << DEF << GRN << " the HumanA ";
-	std::cout << URED << "HumanA destructor";
+	std::cout << GRN << "[ " << this->_name << " ]";
+	std::cout << " the HumanA ";
+	std::cout << URED << "died (rip)";
 	std::cout << DEF << std::endl;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/21 14:43:09 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/22 16:14:07 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ public:
 	~HumanB(void); // destructor
 
 	void attack( void ) const;
-	void setWeapon(Weapon weapon);
+	void setWeapon(Weapon &weapon);
 
 private:
 	std::string _name;
-	Weapon _weapon;
+	Weapon *_weapon;
 	
 };
 
