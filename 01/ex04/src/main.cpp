@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/22 22:50:07 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:44:14 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
-#include <experimental/filesystem>
 
 #define BLU "\e[0;34m"
 #define DEF "\e[0m"
@@ -29,8 +28,8 @@ int main(int argc, char **argv)
 	
 	if (argc != 4)
 	{
-		std::cout << "incorrect usage" << std::endl;
-		std::cout << "usage: ./sed_is_for_losers [filename] [str1] [str2]" << std::endl;
+		std::cerr << "incorrect usage" << std::endl;
+		std::cerr << "usage: ./sed_is_for_losers [filename] [str1] [str2]" << std::endl;
 		return (2);
 	}
 	
@@ -40,8 +39,8 @@ int main(int argc, char **argv)
   	fs.open (argv[1], std::fstream::in);
 	if (!fs.is_open())
 	{
-		std::cout << "inputed file \"" << argv[1];
-		std::cout << "\" wasn't able to be opened" << std::endl;
+		std::cerr << "inputed file \"" << argv[1];
+		std::cerr << "\" wasn't able to be opened" << std::endl;
 		return (1);
 	}
 	
@@ -61,7 +60,7 @@ int main(int argc, char **argv)
 	output.open(in_file.append(".replace").c_str());
     if (!output.is_open())
     {
-		std::cout << "error in opening output file" << std::endl;
+		std::cerr << "error in opening output file" << std::endl;
 		return (fs.close(), 1);
 	}
 
