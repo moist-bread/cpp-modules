@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/24 13:36:07 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:22:14 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ Fixed &Fixed::operator=(Fixed const &source)
 	std::cout << MAG "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
 	setRawBits(source.getRawBits());
-	return *this;
+	return (*this);
 }
 
 int Fixed::toInt( void ) const
@@ -93,8 +93,6 @@ float Fixed::toFloat( void ) const
 
 int Fixed::getRawBits( void ) const
 {
-	// std::cout << CYN "getter has been called";
-	// std::cout << DEF << std::endl;
 	return (_value);
 }
 

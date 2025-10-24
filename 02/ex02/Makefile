@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	my_first_class_in_orthodox_canonical_form
+NAME	=	now_were_talking
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 CXX	=	c++
