@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/10/22 18:40:04 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/10/24 19:56:30 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME	=	sed_is_for_losers
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
-COMP	=	c++
+CXX	=	c++
 CFLAGS	=	-Wall -Wextra -Wno-unused -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
@@ -35,10 +35,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(M_COMOBJS)
 	$(M_COM)
-	@$(COMP) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	@$(COMP) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -55,12 +55,21 @@ rexe: re
 val: all
 	$(VAL) ./$(NAME)
 
+# -->┊( TEST RULES )┊.´-★☆★
+tests:
+	mkdir test_folder
+	cat Makefile > test_folder/makef
+	man strcmp > test_folder/manstrcmp
+	
+rm_tests:
+	rm -rf test_folder
+
 # -->┊( STANDARD RULES )┊.´-★☆★
 clean:
 	$(M_REMOBJS)
 	@rm -rf $(OBJ_DIR)
 
-fclean: clean
+fclean: clean rm_tests
 	$(M_REM)
 	@rm -rf $(NAME)
 

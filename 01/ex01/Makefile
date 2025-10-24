@@ -6,15 +6,15 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/10/06 13:07:41 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/10/24 19:39:54 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	moar_brainz!
+NAME	=	moar_brainz
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
-COMP	=	c++
+CXX	=	c++
 CFLAGS	=	-Wall -Wextra -Wno-unused -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
@@ -33,10 +33,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(M_COMOBJS)
 	$(M_COM)
-	@$(COMP) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: ./%.cpp | $(OBJ_DIR)
-	@$(COMP) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)

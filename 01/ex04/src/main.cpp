@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/23 12:44:14 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:14:09 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int main(int argc, char **argv)
 	
 	std::cout << "all ocorences of " BLU "\"" << argv[2] << "\"" DEF;
 	std::cout << " in the file " BLU "\"" << argv[1] << "\"" DEF;
-	std::cout << " have been irradicated and replaced by: " BLU "\"" << argv[3] << "\"";
+	std::cout << " have been eradicated and replaced by: " BLU "\"" << argv[3] << "\"";
 	std::cout << DEF << std::endl << std::endl;
 	std::cout << "you can delight yourself with the result in a " BLU "\"" << argv[1];
 	std::cout << ".replace\"" DEF " file near you" << std::endl;

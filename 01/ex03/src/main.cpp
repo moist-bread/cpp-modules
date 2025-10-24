@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/22 22:50:54 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:46:22 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ int main(void)
 	
 	goo_blaster.setType("Chemical Beaker Blaster");
 	scientist.attack();
+	std::cout << DEF << std::endl;
+	
+	HumanB scientist_empty("Scientist (empty handed)");
+	scientist_empty.attack();
+	
 	std::cout << DEF << std::endl << std::endl;
 
 	return (0);
