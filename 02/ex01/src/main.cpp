@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/23 17:33:48 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:37:28 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int main(void)
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	std::cout << std::endl << std::endl;
-
+	
 	return (0);
 }

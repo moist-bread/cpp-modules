@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/23 17:43:57 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:36:07 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed(void)
 {
 	setRawBits(0);
 	std::cout << GRN "Fixed of value [ ";
-	std::cout << _value << " ] ";
+	std::cout << *this << " ] ";
 	std::cout << UCYN "has been created";
 	std::cout << DEF << std::endl;
 	return;
@@ -26,10 +26,9 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const int value)
 {
-	// !! CONVERT TO FIXED-P VAL
-	setRawBits(value);
+	setRawBits(value << _fractional_bits);
 	std::cout << GRN "Fixed of value [ ";
-	std::cout << _value << " ] ";
+	std::cout << *this << " ] ";
 	std::cout << UBLU "has been created w/ int value";
 	std::cout << DEF << std::endl;
 	return;
@@ -37,10 +36,17 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-	// !! CONVERT TO FIXED-P VAL
-	setRawBits(value);
+	// using multiplication like in scientific notation
+	// equivalent of value * 2^_fractonal_bits
+	// needs to be this way because the bits in a float
+	// are split differnetly from an int (exp, mant)
+	// using roundf to round up when needed because of the
+	// fractional liminations of the fixed point
+	// 1/2 1/4 1/8 1/16 1/32 1/64 1/128
+	// to try and get the number slighty more accuratly
+	setRawBits(roundf(value * float(1 << _fractional_bits)));
 	std::cout << GRN "Fixed of value [ ";
-	std::cout << _value << " ] ";
+	std::cout << *this << " ] ";
 	std::cout << UMAG "has been created w/ float value";
 	std::cout << DEF << std::endl;
 	return;
@@ -51,7 +57,7 @@ Fixed::Fixed(Fixed const &source)
 	setRawBits(0);
 	*this = source;
 	std::cout << GRN "Fixed of value [ ";
-	std::cout << _value << " ] ";
+	std::cout << *this << " ] ";
 	std::cout << UYEL "has been copy created";
 	std::cout << DEF << std::endl;
 	return;
@@ -60,7 +66,7 @@ Fixed::Fixed(Fixed const &source)
 Fixed::~Fixed(void)
 {
 	std::cout << GRN "Fixed of value [ ";
-	std::cout << _value << " ] ";
+	std::cout << *this << " ] ";
 	std::cout << URED "has been erased";
 	std::cout << DEF << std::endl;
 	return;
@@ -76,14 +82,13 @@ Fixed &Fixed::operator=(Fixed const &source)
 
 int Fixed::toInt( void ) const
 {
-	// !! CONVERT FIXED-P TO INT VAL
-	return (1);
+	return (getRawBits() >> _fractional_bits);
 }
 
 float Fixed::toFloat( void ) const
 {
-	// !! CONVERT FIXED-P TO FLOAT-P VAL
-	return (1.0);
+	// dividing instead of multiplying to reverse
+	return (float(getRawBits()) / float(1 << _fractional_bits));
 }
 
 int Fixed::getRawBits( void ) const
@@ -101,6 +106,6 @@ void Fixed::setRawBits( int const raw )
 
 std::ostream &operator<<(std::ostream &out, Fixed const &source)
 {
-	out << source.getRawBits();
+	out << source.toFloat();
 	return (out);
 }
