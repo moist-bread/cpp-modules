@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/10/24 19:56:30 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/10/27 14:01:37 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,24 @@ val: all
 
 # -->┊( TEST RULES )┊.´-★☆★
 tests:
-	mkdir test_folder
+	mkdir -p test_folder
 	cat Makefile > test_folder/makef
 	man strcmp > test_folder/manstrcmp
-	
+	touch test_folder/untouchable
+	chmod 000 test_folder/untouchable
+
+testing: all tests
+	@echo "\n$(BLK)-->┊$(GRN)  testing a normal file with a word it contains$(DEF)"
+	(./$(NAME) test_folder/makef OBJ VERY_LONG_WORD_TO_SEE_THAT_SED_IS_WORKING; echo ""); 
+	@echo "\n$(BLK)-->┊$(GRN)  testing replacing with empty$(DEF)"
+	(./$(NAME) test_folder/manstrcmp " " ""; echo "");
+	@echo "\n$(BLK)-->┊$(GRN)  testing non existing input file$(DEF)"
+	(./$(NAME) '' " " ""; echo "");
+	@echo "\n$(BLK)-->┊$(GRN)  testing file without permissions$(DEF)"
+	(./$(NAME) test_folder/untouchable a b; echo "");
+	@echo "\n$(BLK)-->┊$(GRN)  testing folder$(DEF)"
+	(./$(NAME) test_folder a b; echo "");
+
 rm_tests:
 	rm -rf test_folder
 

@@ -6,17 +6,15 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/22 22:37:04 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/27 14:33:18 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 //-‵,┊ needed libs by class
-#include <new>
 #include <iostream>
 #include <string>
-#include <vector>
 
 //-‵,┊ color defines
 #define BLK "\e[0;30m"

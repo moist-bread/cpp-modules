@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/24 19:14:09 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/27 12:59:32 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ std::string sed_string(std::string line, std::string s1, std::string s2)
 		{
 			line.erase(found, s1.length());
 			line.insert(found, s2);
+			if (s2 == "" && found > 0)
+				found--;
 		}
 	}
 	return (line);

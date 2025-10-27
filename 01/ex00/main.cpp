@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/22 22:56:31 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/27 14:17:35 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int main(void)
 	Zombie *Engineer = new Zombie("Engineer");
 	delete Engineer;
 	
-	std::cout << std::endl;
-	std::cout << BLU "using new, clear() and delete on a vector iterator of All-Star:";
-	std::cout << DEF << std::endl;
-	std::string CDBNames[] = {"All-Star (1)", "All-Star (2)", "All-Star (3)"};
-	std::vector<Zombie> *AllStar = new std::vector<Zombie>(&CDBNames[0], &CDBNames[3]);
-	AllStar->clear();
-	delete AllStar;
+	// std::cout << std::endl;
+	// std::cout << BLU "using new, clear() and delete on a vector iterator of All-Star:";
+	// std::cout << DEF << std::endl;
+	// std::string CDBNames[] = {"All-Star (1)", "All-Star (2)", "All-Star (3)"};
+	// std::vector<Zombie> *AllStar = new std::vector<Zombie>(&CDBNames[0], &CDBNames[3]);
+	// AllStar->clear();
+	// delete AllStar;
 
 	std::cout << std::endl;
 	std::cout << BLU "newZombie function:";
@@ -60,11 +60,11 @@ int main(void)
 	std::cout << DEF << std::endl;
 	Zombie Imp[3] = { Zombie("Imp (1)"), Zombie("Imp (2)"), Zombie("Imp (3)") };
 
-	std::cout << std::endl;
-	std::cout << BLU "vector iterator of Super_Brainz:";
-	std::cout << DEF << std::endl;
-	std::string SBNames[] = {"Super Brainz (1)", "Super Brainz (2)", "Super Brainz (3)"};
-	std::vector<Zombie> Super_Brainz(&SBNames[0], &SBNames[3]);
+	// std::cout << std::endl;
+	// std::cout << BLU "vector iterator of Super_Brainz:";
+	// std::cout << DEF << std::endl;
+	// std::string SBNames[] = {"Super Brainz (1)", "Super Brainz (2)", "Super Brainz (3)"};
+	// std::vector<Zombie> Super_Brainz(&SBNames[0], &SBNames[3]);
 
 	std::cout << std::endl;
 	std::cout << BLU "randomChump function:";

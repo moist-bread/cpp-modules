@@ -6,17 +6,15 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/24 19:47:05 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/27 14:39:46 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 //-‵,┊ needed libs by class
-#include <new>
 #include <iostream>
 #include <string>
-#include <vector>
 
 //-‵,┊ color defines
 #define GRN "\e[0;32m"
