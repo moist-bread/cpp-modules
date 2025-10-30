@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/27 15:06:46 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/30 16:37:57 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ public:
 	static const Fixed &min(Fixed const &left, Fixed const &right);
 	static Fixed &max(Fixed &left, Fixed &right);
 	static const Fixed &max(Fixed const &left, Fixed const &right);
+
+	Fixed abs(void) const;
 
 	int toInt(void) const;
 	float toFloat(void) const;

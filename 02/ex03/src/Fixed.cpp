@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/27 15:06:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/10/30 16:46:50 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,18 @@ int const Fixed::_fractional_bits = 8;
 Fixed::Fixed(void)
 {
 	setRawBits(0);
-	std::cout << GRN "Fixed of value [ ";
-	std::cout << *this << " ] ";
-	std::cout << UCYN "has been created";
-	std::cout << DEF << std::endl;
 	return;
 }
 
 Fixed::Fixed(const int value)
 {
 	setRawBits(value << _fractional_bits);
-	std::cout << GRN "Fixed of value [ ";
-	std::cout << *this << " ] ";
-	std::cout << UBLU "has been created w/ int value";
-	std::cout << DEF << std::endl;
 	return;
 }
 
 Fixed::Fixed(const float value)
 {
 	setRawBits(roundf(value * float(1 << _fractional_bits)));
-	std::cout << GRN "Fixed of value [ ";
-	std::cout << *this << " ] ";
-	std::cout << UMAG "has been created w/ float value";
-	std::cout << DEF << std::endl;
 	return;
 }
 
@@ -48,26 +36,16 @@ Fixed::Fixed(Fixed const &source)
 {
 	setRawBits(0);
 	*this = source;
-	std::cout << GRN "Fixed of value [ ";
-	std::cout << *this << " ] ";
-	std::cout << UYEL "has been copy created";
-	std::cout << DEF << std::endl;
 	return;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << GRN "Fixed of value [ ";
-	std::cout << *this << " ] ";
-	std::cout << URED "has been erased";
-	std::cout << DEF << std::endl;
 	return;
 }
 
 Fixed &Fixed::operator=(Fixed const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
-	std::cout << DEF << std::endl;
 	setRawBits(source.getRawBits());
 	return (*this);
 }
@@ -76,73 +54,53 @@ Fixed &Fixed::operator=(Fixed const &source)
 
 bool Fixed::operator>(Fixed const &source) const
 {
-	std::cout << BLU "greater-than operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() > source.getRawBits()));
 }
 
 bool Fixed::operator<(Fixed const &source) const
 {
-	std::cout << BLU "lesser-than operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() < source.getRawBits()));
 }
 
 bool Fixed::operator>=(Fixed const &source) const
 {
-	std::cout << BLU "greater-than or equal to operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() >= source.getRawBits()));
 }
 
 bool Fixed::operator<=(Fixed const &source) const
 {
-	std::cout << BLU "lesser-than or equal to operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() <= source.getRawBits()));
 }
 
 bool Fixed::operator==(Fixed const &source) const
 {
-	std::cout << BLU "equallity to operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() == source.getRawBits()));
 }
 
 bool Fixed::operator!=(Fixed const &source) const
 {
-	std::cout << BLU "difference operator has been called";
-	std::cout << DEF << std::endl;
 	return ((getRawBits() != source.getRawBits()));
 }
 
 // !! arithmatic operators
 
-	Fixed Fixed::operator+(Fixed const &source) const
+Fixed Fixed::operator+(Fixed const &source) const
 {
-	std::cout << GRN "addition operator has been called";
-	std::cout << DEF << std::endl;
 	return (Fixed(toFloat() + source.toFloat()));
 }
 
 Fixed Fixed::operator-(Fixed const &source) const
 {
-	std::cout << YEL "subtraction operator has been called";
-	std::cout << DEF << std::endl;
 	return (Fixed(toFloat() - source.toFloat()));
 }
 
 Fixed Fixed::operator*(Fixed const &source) const
 {
-	std::cout << HMAG "multiplication operator has been called";
-	std::cout << DEF << std::endl;
 	return (Fixed(toFloat() * source.toFloat()));
 }
 
 Fixed Fixed::operator/(Fixed const &source) const
 {
-	std::cout << HRED "division operator has been called";
-	std::cout << DEF << std::endl;
 	return (Fixed(toFloat() / source.toFloat()));
 }
 
@@ -150,23 +108,12 @@ Fixed Fixed::operator/(Fixed const &source) const
 
 Fixed &Fixed::operator++()
 {
-	std::cout << HRED "pre-increment operator has been called";
-	std::cout << DEF << std::endl;
-	
-	// increment the rawbits a little bit
 	_value++;
 	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-	std::cout << HRED "post-increment operator has been called";
-	std::cout << DEF << std::endl;
-	
-	// create a temporary copy of this instance
-	// for that moment, and just increase
-	// it like in pre-inc
-	
 	Fixed temp = *this;
     _value++;
 	return (temp);
@@ -174,17 +121,12 @@ Fixed Fixed::operator++(int)
 
 Fixed &Fixed::operator--()
 {
-	std::cout << HRED "pre-increment operator has been called";
-	std::cout << DEF << std::endl;
 	_value--;
 	return (*this);
 }
 
 Fixed Fixed::operator--(int)
 {
-	std::cout << HRED "post-increment operator has been called";
-	std::cout << DEF << std::endl;
-	
 	Fixed temp = *this;
     _value--;
 	return (temp);
@@ -222,6 +164,16 @@ Fixed const &Fixed::max(Fixed const &left, Fixed const &right)
 		return (left);
 	else
 		return (right);
+}
+
+// !! others
+
+Fixed Fixed::abs(void) const
+{
+	if (*this < 0)
+		return (Fixed(toFloat() * -1));
+	else
+		return (*this);
 }
 
 int Fixed::toInt(void) const
