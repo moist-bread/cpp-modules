@@ -1,55 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 12:41:25 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:06:43 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ClapTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
-ClapTrap::ClapTrap(void): _name("nameless"), _hit_pt(10), _energy_pt(10), _attack_dm(0)
+ScavTrap::ScavTrap(void)
 {
-	std::cout << GRN "the ClapTrap named [ ";
+	set_hit_pt(100);
+	set_energy_pt(50);
+	set_attack_dm(20);
+	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructors";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hit_pt(10), _energy_pt(10), _attack_dm(0)
+ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << GRN "the ClapTrap named [ ";
+	set_hit_pt(100);
+	set_energy_pt(50);
+	set_attack_dm(20);
+	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructors";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &source)
+ScavTrap::ScavTrap(ScavTrap const &source)
 {
 	*this = source;
-	std::cout << GRN "the ClapTrap named [ ";
+	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UYEL "has been copy created";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ClapTrap::~ClapTrap(void)
+ScavTrap::~ScavTrap(void)
 {
-	std::cout << GRN "the ClapTrap named [ ";
+	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << URED "has been scrapped for parts";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap const &source)
+ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 {
 	std::cout << MAG "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
@@ -60,91 +66,36 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 	return (*this);
 }
 
-std::string ClapTrap::get_name(void) const
-{
-	return (_name);
-}
-
-int ClapTrap::get_hit_pt(void) const
-{
-	return (_hit_pt);
-}
-
-int ClapTrap::get_energy_pt(void) const
-{
-	return (_energy_pt);
-}
-
-int ClapTrap::get_attack_dm(void) const
-{
-	return (_attack_dm);
-}
-
-void ClapTrap::set_name(std::string value)
-{
-	_name = value;
-}
-
-void ClapTrap::set_hit_pt(int value)
-{
-	_hit_pt = value;
-}
-
-void ClapTrap::set_energy_pt(int value)
-{
-	_energy_pt = value;
-}
-
-void ClapTrap::set_attack_dm(int value)
-{
-	_attack_dm = value;
-}
-
-void ClapTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
 	{	
-		std::cout << "ClapTrap " << get_name() << " was unable to attack" << std::endl;
+		std::cout << "ScavTrap " << get_name() << " was unable to attack" << std::endl;
 		return ;
 	}
 	set_energy_pt(get_energy_pt() - 1);
-	std::cout << "ClapTrap " << get_name() << " attacks " << target;
+	std::cout << "ScavTrap " << get_name() << " attacks " << target;
 	std::cout << ", causing " << get_attack_dm() << " points of damage!" << std::endl;
 	return ;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
-{
-	if ((int)amount > 0)
-		set_hit_pt(get_hit_pt() - amount);
-	std::cout << "ClapTrap " << get_name() << " was hit and took ";
-	std::cout << amount << " points of damage :(" << std::endl;
-	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
-	return ;
-}
-
-void ClapTrap::beRepaired(unsigned int amount)
+void ScavTrap::guardGate(void)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
 	{	
-		std::cout << "ClapTrap " << get_name() << " was unable to repair itself" << std::endl;
+		std::cout << "ScavTrap " << get_name() << " was unable to gatekeep" << std::endl;
 		return ;
 	}
-	if ((int)amount > 0)
-		set_hit_pt(get_hit_pt() + amount);
-	set_energy_pt(get_energy_pt() - 1);
-	std::cout << "ClapTrap " << get_name() << " was repared and has restored ";
-	std::cout << amount << " hit points :)" << std::endl;
-	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
+	std::cout << "ScavTrap " << get_name() << " is now in gate keeper mode ";
 	return ;
 }
 
-std::ostream &operator<<(std::ostream &out, ClapTrap const &source)
+std::ostream &operator<<(std::ostream &out, ScavTrap const &source)
 {
 	out << std::endl;
 	out << "╆───────────────░────────░───────░───── -" << std::endl;
 	out << "╵" << std::endl;
-	out << "╵   "<< "ClapTrap" << std::endl;
+	out << "╵   "<< "ScavTrap" << std::endl;
 	out << "╵   "<< source.get_name() << std::endl;
 	out << "╆" << std::endl;
 	out << ":   " MAG "▖ HIT POINTS    : " DEF << source.get_hit_pt() << std::endl;
