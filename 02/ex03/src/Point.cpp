@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:05:28 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 17:25:07 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:17:23 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Point::Point(const float x, const float y): _x(x), _y(y)
 {
 	std::cout << GRN "Point of value [ ";
 	std::cout << *this << " ] ";
-	std::cout << UMAG "has been created w/ float value" DEF;
+	std::cout << UCYN "has been created" DEF;
 	std::cout << std::endl;
 	return;
 }

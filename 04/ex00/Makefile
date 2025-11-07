@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/11/06 16:06:25 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/11/07 13:40:08 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	=	polymorphism
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 CXX	=	c++
-CFLAGS	=	-Wall -Wno-unused -Werror -g -std=c++98
+CXXFLAGS	=	-Wall -Wno-unused -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 # -->┊( DIRECTORIES )┊.´-★☆★
@@ -35,10 +35,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(M_COMOBJS)
 	$(M_COM)
-	@$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	@$(CXX) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)

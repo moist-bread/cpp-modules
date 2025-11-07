@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 18:39:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:19:03 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 
 // -->┊( FRAGTRAP )┊.´-★☆★
 
-class FragTrap: public ClapTrap
+class FragTrap : public ClapTrap
 {
 public:
-	FragTrap(void);						// default constructor
-	FragTrap(std::string name);			// name constructor
-	FragTrap(FragTrap const &source);	// copy constructor
-	~FragTrap(void);					// destructor
+	FragTrap(void);					  // default constructor
+	FragTrap(std::string name);		  // name constructor
+	FragTrap(FragTrap const &source); // copy constructor
+	~FragTrap(void);				  // destructor
 
 	FragTrap &operator=(FragTrap const &source); // copy assignment operator overload
-	
+
 	// actions
-	void attack(const std::string& target);
 	void highFivesGuys(void);
 };
 

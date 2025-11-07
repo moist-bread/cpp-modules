@@ -6,16 +6,15 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 18:57:42 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:30:19 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void)
+DiamondTrap::DiamondTrap(void): ClapTrap("nameless_clap_name")
 {
-	FragTrap::set_hit_pt(100);
-	set_energy_pt(50);
+	this->_name = "nameless";
 	set_attack_dm(30);
 	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
@@ -24,14 +23,12 @@ DiamondTrap::DiamondTrap(void)
 	return;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
 {
-	set_name(name);
-	set_hit_pt(100);
-	set_energy_pt(50);
+	this->_name = name;
 	set_attack_dm(30);
 	std::cout << GRN "the DiamondTrap named [ ";
-	std::cout << get_name() << " ] ";
+	std::cout << this->_name << " ] ";
 	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
@@ -58,7 +55,7 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
+	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
 	set_name(source.get_name());
 	set_hit_pt(source.get_hit_pt());
@@ -66,28 +63,11 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &source)
 	set_attack_dm(source.get_attack_dm());
 	return (*this);
 }
-
-void DiamondTrap::attack(const std::string &target)
+void DiamondTrap::whoAmI(void)
 {
-	if (get_hit_pt() < 1 || get_energy_pt() < 1)
-	{
-		std::cout << BLU "DiamondTrap " << get_name() << " was unable to attack" DEF << std::endl;
-		return;
-	}
-	set_energy_pt(get_energy_pt() - 1);
-	std::cout << BLU "DiamondTrap " << get_name() << " attacks " << target;
-	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
-	return;
-}
-
-void DiamondTrap::guardGate(void)
-{
-	if (get_hit_pt() < 1 || get_energy_pt() < 1)
-	{
-		std::cout << "DiamondTrap " << get_name() << " was unable to gatekeep" << std::endl;
-		return;
-	}
-	std::cout << "DiamondTrap " << get_name() << " is now in gate keeper mode ";
+	std::cout << CYN "I'm- I'm a DiamondTrap, and my name is [ ";
+	std::cout << _name << " ] ";
+	std::cout << DEF << std::endl;
 	return;
 }
 

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/24 18:00:24 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:10:51 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(void)
 	std::cout << DEF << std::endl << std::endl;
 	
 	Fixed c;
-	Fixed const d( Fixed( 3.25f ) / Fixed( 2 ) );
+	Fixed const d( Fixed( 3.25f ) / Fixed( 2.0f ) );
 	std::cout << std::endl;
 	
 	std::cout << c << std::endl;

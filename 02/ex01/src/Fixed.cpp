@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 17:15:13 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:45:50 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,32 +74,33 @@ Fixed::~Fixed(void)
 
 Fixed &Fixed::operator=(Fixed const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
+	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
-	setRawBits(source.getRawBits());
+	if (this != &source)
+		setRawBits(source.getRawBits());
 	return (*this);
 }
 
-int Fixed::toInt( void ) const
+int Fixed::toInt(void) const
 {
 	return (getRawBits() >> _fractional_bits);
 }
 
-float Fixed::toFloat( void ) const
+float Fixed::toFloat(void) const
 {
 	// dividing instead of multiplying to reverse
 	return (float(getRawBits()) / float(1 << _fractional_bits));
 }
 
-int Fixed::getRawBits( void ) const
+int Fixed::getRawBits(void) const
 {
 	return (_value);
 }
 
-void Fixed::setRawBits( int const raw )
+void Fixed::setRawBits(int const raw)
 {
 	_value = raw;
-	return ;
+	return;
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &source)

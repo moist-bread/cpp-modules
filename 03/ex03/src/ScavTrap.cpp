@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 15:48:30 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:28:05 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,15 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
+	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
-	set_name(source.get_name());
-	set_hit_pt(source.get_hit_pt());
-	set_energy_pt(source.get_energy_pt());
-	set_attack_dm(source.get_attack_dm());
+	if (this != &source)
+	{
+		set_name(source.get_name());
+		set_hit_pt(source.get_hit_pt());
+		set_energy_pt(source.get_energy_pt());
+		set_attack_dm(source.get_attack_dm());
+	}
 	return (*this);
 }
 
@@ -75,7 +78,7 @@ void ScavTrap::attack(const std::string &target)
 		return;
 	}
 	set_energy_pt(get_energy_pt() - 1);
-	std::cout << BLU "ScavTrap " << get_name() << " attacks " << target;
+	std::cout << BLU "ScavTrap " << this->_name << " attacks " << target;
 	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 18:40:24 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:19:45 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,16 @@ FragTrap::~FragTrap(void)
 
 FragTrap &FragTrap::operator=(FragTrap const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
+	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
-	set_name(source.get_name());
-	set_hit_pt(source.get_hit_pt());
-	set_energy_pt(source.get_energy_pt());
-	set_attack_dm(source.get_attack_dm());
-	return (*this);
-}
-
-void FragTrap::attack(const std::string &target)
-{
-	if (get_hit_pt() < 1 || get_energy_pt() < 1)
+	if (this != &source)
 	{
-		std::cout << YEL "FragTrap " << get_name() << " was unable to attack" DEF << std::endl;
-		return;
+		set_name(source.get_name());
+		set_hit_pt(source.get_hit_pt());
+		set_energy_pt(source.get_energy_pt());
+		set_attack_dm(source.get_attack_dm());
 	}
-	set_energy_pt(get_energy_pt() - 1);
-	std::cout << YEL "FragTrap " << get_name() << " attacks " << target;
-	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
-	return;
+	return (*this);
 }
 
 void FragTrap::highFivesGuys(void)
@@ -85,9 +75,11 @@ void FragTrap::highFivesGuys(void)
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
 	{
 		std::cout << "FragTrap " << get_name() << " was unable to hand out high fives" << std::endl;
+		std::cout << DEF << std::endl;
 		return;
 	}
 	std::cout << "FragTrap " << get_name() << " is high fiving everyone";
+	std::cout << DEF << std::endl;
 	return;
 }
 

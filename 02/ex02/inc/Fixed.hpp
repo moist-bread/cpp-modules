@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/24 17:59:00 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:13:10 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 #define BLU "\e[0;34m"
 #define MAG "\e[0;35m"
 #define CYN "\e[0;36m"
-#define HRED "\e[0;91m"
-#define HMAG "\e[0;95m"
 #define BBLU "\e[1;34m"
 
 #define URED "\e[4;31m"
@@ -58,20 +56,20 @@ public:
 	bool operator!=(Fixed const &source) const;
 	
 	// arithmatic operators
-	
+
 	Fixed operator+(Fixed const &source) const;
 	Fixed operator-(Fixed const &source) const;
 	Fixed operator*(Fixed const &source) const;
 	Fixed operator/(Fixed const &source) const;
 
 	// increment/decrement operators
-	
+
 	Fixed &operator++();
 	Fixed operator++(int);
 	Fixed &operator--();
 	Fixed operator--(int);
 	
-	// public min and max
+	// mins and maxs
 	
 	static Fixed &min(Fixed &left, Fixed &right);
 	static const Fixed &min(Fixed const &left, Fixed const &right);

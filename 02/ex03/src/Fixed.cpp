@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/30 16:46:50 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:37:44 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ Fixed::~Fixed(void)
 
 Fixed &Fixed::operator=(Fixed const &source)
 {
-	setRawBits(source.getRawBits());
+	if (this != &source)
+		setRawBits(source.getRawBits());
 	return (*this);
 }
 

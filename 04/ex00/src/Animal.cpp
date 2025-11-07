@@ -6,13 +6,13 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/06 15:48:59 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:52:15 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Animal.hpp"
 
-Animal::Animal(void): type("Unidentified")
+Animal::Animal(void) : type("Unidentified")
 {
 	std::cout << GRN "an Animal, more commonly identified as [ ";
 	std::cout << getType() << " ] ";
@@ -42,9 +42,10 @@ Animal::~Animal(void)
 
 Animal &Animal::operator=(Animal const &source)
 {
-	std::cout << MAG "copy assignment operator overload has been called";
+	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
-	type = source.getType();
+	if (this != &source)
+		type = source.getType();
 	return (*this);
 }
 
@@ -62,7 +63,7 @@ void Animal::makeSound(void) const
 		sound = BLU "WOOF WOOF WOOF WOOF";
 	else
 		sound = MAG "RAWRRRRRRRRR";
-	
+
 	std::cout << sound << std::endl;
 	return;
 }
