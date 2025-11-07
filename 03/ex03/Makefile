@@ -6,12 +6,12 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/11/04 17:34:08 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/11/04 18:46:08 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	hi_this_is_brain
+NAME	=	diamond_trap
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 CXX	=	c++
@@ -19,12 +19,14 @@ CXXFLAGS	=	-Wall -Wextra -Wno-unused -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 # -->┊( DIRECTORIES )┊.´-★☆★
+SRC_DIR	=	src
 OBJ_DIR	=	obj
 
 # -->┊( SOURCE AND OBJS )┊.´-★☆★
-SRC		=	main.cpp
+SOURCE	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+SRC		=	$(addprefix $(SRC_DIR)/, $(SOURCE))
+OBJS	=	$(addprefix $(OBJ_DIR)/, $(SOURCE:.cpp=.o))
 
 
 # -->┊( COMPILATION RULES )┊.´-★☆★
@@ -35,7 +37,7 @@ $(NAME): $(OBJS)
 	$(M_COM)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: ./%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

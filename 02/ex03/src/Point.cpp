@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:05:28 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/30 17:06:42 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:25:07 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Point::~Point(void)
 
 Point &Point::operator=(Point const &source)
 {
+	(void)source;
 	return (*this);
 }
 

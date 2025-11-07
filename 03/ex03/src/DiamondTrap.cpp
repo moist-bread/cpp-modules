@@ -1,62 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 15:48:30 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:57:42 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ScavTrap.hpp"
+#include "../inc/DiamondTrap.hpp"
 
-ScavTrap::ScavTrap(void)
+DiamondTrap::DiamondTrap(void)
 {
-	set_hit_pt(100);
+	FragTrap::set_hit_pt(100);
 	set_energy_pt(50);
-	set_attack_dm(20);
-	std::cout << GRN "the ScavTrap named [ ";
+	set_attack_dm(30);
+	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name)
 {
 	set_name(name);
 	set_hit_pt(100);
 	set_energy_pt(50);
-	set_attack_dm(20);
-	std::cout << GRN "the ScavTrap named [ ";
+	set_attack_dm(30);
+	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &source)
+DiamondTrap::DiamondTrap(DiamondTrap const &source)
 {
 	*this = source;
-	std::cout << GRN "the ScavTrap named [ ";
+	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UYEL "has been copy created";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ScavTrap::~ScavTrap(void)
+DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << GRN "the ScavTrap named [ ";
+	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << URED "has been scrapped for parts";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap const &source)
+DiamondTrap &DiamondTrap::operator=(DiamondTrap const &source)
 {
 	std::cout << MAG "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
@@ -67,36 +67,36 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 	return (*this);
 }
 
-void ScavTrap::attack(const std::string &target)
+void DiamondTrap::attack(const std::string &target)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
 	{
-		std::cout << BLU "ScavTrap " << get_name() << " was unable to attack" DEF << std::endl;
+		std::cout << BLU "DiamondTrap " << get_name() << " was unable to attack" DEF << std::endl;
 		return;
 	}
 	set_energy_pt(get_energy_pt() - 1);
-	std::cout << BLU "ScavTrap " << get_name() << " attacks " << target;
+	std::cout << BLU "DiamondTrap " << get_name() << " attacks " << target;
 	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
 	return;
 }
 
-void ScavTrap::guardGate(void)
+void DiamondTrap::guardGate(void)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
 	{
-		std::cout << "ScavTrap " << get_name() << " was unable to gatekeep" << std::endl;
+		std::cout << "DiamondTrap " << get_name() << " was unable to gatekeep" << std::endl;
 		return;
 	}
-	std::cout << "ScavTrap " << get_name() << " is now in gate keeper mode ";
+	std::cout << "DiamondTrap " << get_name() << " is now in gate keeper mode ";
 	return;
 }
 
-std::ostream &operator<<(std::ostream &out, ScavTrap const &source)
+std::ostream &operator<<(std::ostream &out, DiamondTrap const &source)
 {
 	out << std::endl;
 	out << "╆───────────────░────────░───────░───── -" << std::endl;
 	out << "╵" << std::endl;
-	out << "╵   " << "ScavTrap" << std::endl;
+	out << "╵   " << "DiamondTrap" << std::endl;
 	out << "╵   " << source.get_name() << std::endl;
 	out << "╆" << std::endl;
 	out << ":   " MAG "▖ HIT POINTS    : " DEF << source.get_hit_pt() << std::endl;

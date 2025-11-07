@@ -6,26 +6,26 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 12:41:15 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:48:30 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void): _name("nameless"), _hit_pt(10), _energy_pt(10), _attack_dm(0)
+ClapTrap::ClapTrap(void) : _name("nameless"), _hit_pt(10), _energy_pt(10), _attack_dm(0)
 {
 	std::cout << GRN "the ClapTrap named [ ";
 	std::cout << get_name() << " ] ";
-	std::cout << UCYN "has been constructors";
+	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hit_pt(10), _energy_pt(10), _attack_dm(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_pt(10), _energy_pt(10), _attack_dm(0)
 {
 	std::cout << GRN "the ClapTrap named [ ";
 	std::cout << get_name() << " ] ";
-	std::cout << UCYN "has been constructors";
+	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
 }
@@ -100,17 +100,17 @@ void ClapTrap::set_attack_dm(int value)
 	_attack_dm = value;
 }
 
-void ClapTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string &target)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
-	{	
+	{
 		std::cout << "ClapTrap " << get_name() << " was unable to attack" << std::endl;
-		return ;
+		return;
 	}
 	set_energy_pt(get_energy_pt() - 1);
 	std::cout << "ClapTrap " << get_name() << " attacks " << target;
 	std::cout << ", causing " << get_attack_dm() << " points of damage!" << std::endl;
-	return ;
+	return;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -120,15 +120,15 @@ void ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << get_name() << " was hit and took ";
 	std::cout << amount << " points of damage :(" << std::endl;
 	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
-	return ;
+	return;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
-	{	
+	{
 		std::cout << "ClapTrap " << get_name() << " was unable to repair itself" << std::endl;
-		return ;
+		return;
 	}
 	if ((int)amount > 0)
 		set_hit_pt(get_hit_pt() + amount);
@@ -136,7 +136,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << get_name() << " was repared and has restored ";
 	std::cout << amount << " hit points :)" << std::endl;
 	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
-	return ;
+	return;
 }
 
 std::ostream &operator<<(std::ostream &out, ClapTrap const &source)
@@ -144,8 +144,8 @@ std::ostream &operator<<(std::ostream &out, ClapTrap const &source)
 	out << std::endl;
 	out << "╆───────────────░────────░───────░───── -" << std::endl;
 	out << "╵" << std::endl;
-	out << "╵   "<< "ClapTrap" << std::endl;
-	out << "╵   "<< source.get_name() << std::endl;
+	out << "╵   " << "ClapTrap" << std::endl;
+	out << "╵   " << source.get_name() << std::endl;
 	out << "╆" << std::endl;
 	out << ":   " MAG "▖ HIT POINTS    : " DEF << source.get_hit_pt() << std::endl;
 	out << "╆   " GRN "▖ ENERGY POINTS : " DEF << source.get_energy_pt() << std::endl;
@@ -153,6 +153,6 @@ std::ostream &operator<<(std::ostream &out, ClapTrap const &source)
 	out << "╵" << std::endl;
 	out << "╆──────────────────────────────░───░░── -" << std::endl;
 	out << std::endl;
-	
+
 	return (out);
 }

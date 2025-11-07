@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:14:04 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/10/30 17:04:23 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:30:39 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 		return (false);
 	
 	Fixed area_pab = triangle_area(point, a, b);
+	if (area_pab == 0)
+		return (false);
 	Fixed area_pbc = triangle_area(point, b, c);
+	if (area_pbc == 0)
+		return (false);
 	Fixed area_pac = triangle_area(point, a, c);
+	if (area_pac == 0)
+		return (false);
 	
 	return (area_total == area_pab + area_pbc + area_pac);
 }
