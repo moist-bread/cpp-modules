@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/04 12:38:43 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:06:20 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 //-‵,┊ needed libs by class
 #include <iostream>
-#include <cmath>
 
 //-‵,┊ color defines
 
@@ -23,6 +22,8 @@
 #define BLU "\e[0;34m"
 #define MAG "\e[0;35m"
 #define CYN "\e[0;36m"
+
+#define BBLU "\e[1;34m"
 
 #define URED "\e[4;31m"
 #define UYEL "\e[4;33m"
@@ -49,19 +50,13 @@ public:
 	int get_hit_pt(void) const;
 	int get_energy_pt(void) const;
 	int get_attack_dm(void) const;
-	
-	// setters
-	void set_name(std::string value);
-	void set_hit_pt(int value);
-	void set_energy_pt(int value);
-	void set_attack_dm(int value);
 
 	// actions
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 		
-private:
+protected:
 	std::string _name;
 	int _hit_pt;
 	int _energy_pt;

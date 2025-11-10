@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 14:49:30 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:52:26 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 ScavTrap::ScavTrap(void)
 {
-	set_hit_pt(100);
-	set_energy_pt(50);
-	set_attack_dm(20);
+	_name = "nameless";
+	_hit_pt = 100;
+	_energy_pt = 50;
+	_attack_dm = 20;
 	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructed";
@@ -26,10 +27,10 @@ ScavTrap::ScavTrap(void)
 
 ScavTrap::ScavTrap(std::string name)
 {
-	set_name(name);
-	set_hit_pt(100);
-	set_energy_pt(50);
-	set_attack_dm(20);
+	_name = name;
+	_hit_pt = 100;
+	_energy_pt = 50;
+	_attack_dm = 20;
 	std::cout << GRN "the ScavTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructed";
@@ -62,10 +63,10 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 	std::cout << DEF << std::endl;
 	if (this != &source)
 	{
-		set_name(source.get_name());
-		set_hit_pt(source.get_hit_pt());
-		set_energy_pt(source.get_energy_pt());
-		set_attack_dm(source.get_attack_dm());
+		_name = source.get_name();
+		_hit_pt = source.get_hit_pt();
+		_energy_pt = source.get_energy_pt();
+		_attack_dm = source.get_attack_dm();
 	}
 	return (*this);
 }
@@ -77,7 +78,7 @@ void ScavTrap::attack(const std::string &target)
 		std::cout << BLU "ScavTrap " << get_name() << " was unable to attack" DEF << std::endl;
 		return;
 	}
-	set_energy_pt(get_energy_pt() - 1);
+	_energy_pt--;
 	std::cout << BLU "ScavTrap " << get_name() << " attacks " << target;
 	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
 	return;
@@ -90,7 +91,7 @@ void ScavTrap::guardGate(void)
 		std::cout << "ScavTrap " << get_name() << " was unable to gatekeep" << std::endl;
 		return;
 	}
-	std::cout << "ScavTrap " << get_name() << " is now in gate keeper mode ";
+	std::cout << YEL "ScavTrap " << get_name() << " is now in gate keeper mode" DEF;
 	return;
 }
 
