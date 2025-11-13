@@ -6,7 +6,7 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/11/04 18:42:54 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/11/13 10:53:34 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	=	frag_trap
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 CXX	=	c++
-CXXFLAGS	=	-Wall -Wextra -Wno-unused -Werror -g -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -g -std=c++98
 VAL		=	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 # -->┊( DIRECTORIES )┊.´-★☆★

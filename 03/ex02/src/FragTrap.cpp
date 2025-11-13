@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/10 17:51:00 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:02:59 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ FragTrap::FragTrap(std::string name)
 	return;
 }
 
-FragTrap::FragTrap(FragTrap const &source)
+FragTrap::FragTrap(FragTrap const &source): ClapTrap(source)
 {
 	*this = source;
 	std::cout << GRN "the FragTrap named [ ";

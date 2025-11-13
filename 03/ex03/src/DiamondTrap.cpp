@@ -6,16 +6,16 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 17:30:19 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:04:54 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void): ClapTrap("nameless_clap_name")
+DiamondTrap::DiamondTrap(void): ClapTrap("nameless_clap_name"), FragTrap("nameless_clap_name"), ScavTrap("nameless_clap_name")
 {
-	this->_name = "nameless";
-	set_attack_dm(30);
+	_name = "nameless";
+	_attack_dm = 30;
 	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << get_name() << " ] ";
 	std::cout << UCYN "has been constructed";
@@ -23,10 +23,10 @@ DiamondTrap::DiamondTrap(void): ClapTrap("nameless_clap_name")
 	return;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), ScavTrap(name + "_clap_name")
 {
-	this->_name = name;
-	set_attack_dm(30);
+	_name = name;
+	_attack_dm = 30;
 	std::cout << GRN "the DiamondTrap named [ ";
 	std::cout << this->_name << " ] ";
 	std::cout << UCYN "has been constructed";
@@ -34,7 +34,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
 	return;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &source)
+DiamondTrap::DiamondTrap(DiamondTrap const &source): ClapTrap(source), FragTrap(source), ScavTrap(source) 
 {
 	*this = source;
 	std::cout << GRN "the DiamondTrap named [ ";
@@ -57,17 +57,25 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &source)
 {
 	std::cout << YEL "copy assignment operator overload has been called";
 	std::cout << DEF << std::endl;
-	set_name(source.get_name());
-	set_hit_pt(source.get_hit_pt());
-	set_energy_pt(source.get_energy_pt());
-	set_attack_dm(source.get_attack_dm());
+	if (this != &source)
+	{
+		this->_name = source._name;
+		_name = source.get_name();
+		_hit_pt = source.get_hit_pt();
+		_energy_pt = source.get_energy_pt();
+		_attack_dm = source.get_attack_dm();
+	}
 	return (*this);
 }
 void DiamondTrap::whoAmI(void)
 {
+	if (get_hit_pt() < 1 || get_energy_pt() < 1)
+	{
+		std::cout << "DiamondTrap " << get_name() << " was too stunned to speak" << std::endl;
+		return;
+	}
 	std::cout << CYN "I'm- I'm a DiamondTrap, and my name is [ ";
-	std::cout << _name << " ] ";
-	std::cout << DEF << std::endl;
+	std::cout << this->_name << " ] " DEF << std::endl;
 	return;
 }
 

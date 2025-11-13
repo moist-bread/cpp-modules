@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 17:27:50 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:54:04 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 //-‵,┊ needed libs by class
 #include <iostream>
-#include <cmath>
 
 //-‵,┊ color defines
 
@@ -23,6 +22,8 @@
 #define BLU "\e[0;34m"
 #define MAG "\e[0;35m"
 #define CYN "\e[0;36m"
+
+#define BBLU "\e[1;34m"
 
 #define URED "\e[4;31m"
 #define UYEL "\e[4;33m"
@@ -37,10 +38,10 @@
 class ClapTrap
 {
 public:
-	ClapTrap(void);					  // default constructor
-	ClapTrap(std::string name);		  // name constructor
-	ClapTrap(ClapTrap const &source); // copy constructor
-	~ClapTrap(void);				  // destructor
+	ClapTrap(void);						// default constructor
+	ClapTrap(std::string name);			// name constructor
+	ClapTrap(ClapTrap const &source);	// copy constructor
+	~ClapTrap(void);					// destructor
 
 	ClapTrap &operator=(ClapTrap const &source); // copy assignment operator overload
 
@@ -50,17 +51,11 @@ public:
 	int get_energy_pt(void) const;
 	int get_attack_dm(void) const;
 
-	// setters
-	void set_name(std::string value);
-	void set_hit_pt(int value);
-	void set_energy_pt(int value);
-	void set_attack_dm(int value);
-
 	// actions
-	void attack(const std::string &target);
+	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
+		
 protected:
 	std::string _name;
 	int _hit_pt;

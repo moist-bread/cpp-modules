@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 14:52:15 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:38:41 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,6 @@ std::string Animal::getType(void) const
 
 void Animal::makeSound(void) const
 {
-	std::string sound;
-	if (getType() == "Cat")
-		sound = YEL "MEOWWWWWWWWWWWW";
-	else if (getType() == "Dog")
-		sound = BLU "WOOF WOOF WOOF WOOF";
-	else
-		sound = MAG "RAWRRRRRRRRR";
-
-	std::cout << sound << std::endl;
+	std::cout << MAG "RAWRRRRRRRRR" << std::endl;
 	return;
 }

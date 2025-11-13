@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/10 15:52:26 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:02:42 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(std::string name)
 	return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &source)
+ScavTrap::ScavTrap(ScavTrap const &source): ClapTrap(source)
 {
 	*this = source;
 	std::cout << GRN "the ScavTrap named [ ";

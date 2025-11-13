@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 14:51:33 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:54:32 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 	std::cout << DEF << std::endl;
 	if (this != &source)
 	{
-		set_name(source.get_name());
-		set_hit_pt(source.get_hit_pt());
-		set_energy_pt(source.get_energy_pt());
-		set_attack_dm(source.get_attack_dm());
+		_name = source.get_name();
+		_hit_pt = source.get_hit_pt();
+		_energy_pt = source.get_energy_pt();
+		_attack_dm = source.get_attack_dm();
 	}
 	return (*this);
 }
@@ -83,26 +83,6 @@ int ClapTrap::get_attack_dm(void) const
 	return (_attack_dm);
 }
 
-void ClapTrap::set_name(std::string value)
-{
-	_name = value;
-}
-
-void ClapTrap::set_hit_pt(int value)
-{
-	_hit_pt = value;
-}
-
-void ClapTrap::set_energy_pt(int value)
-{
-	_energy_pt = value;
-}
-
-void ClapTrap::set_attack_dm(int value)
-{
-	_attack_dm = value;
-}
-
 void ClapTrap::attack(const std::string &target)
 {
 	if (get_hit_pt() < 1 || get_energy_pt() < 1)
@@ -110,19 +90,19 @@ void ClapTrap::attack(const std::string &target)
 		std::cout << "ClapTrap " << get_name() << " was unable to attack" << std::endl;
 		return;
 	}
-	set_energy_pt(get_energy_pt() - 1);
-	std::cout << "ClapTrap " << get_name() << " attacks " << target;
-	std::cout << ", causing " << get_attack_dm() << " points of damage!" << std::endl;
+	_energy_pt--;
+	std::cout << BLU "ClapTrap " << get_name() << " attacks " << target;
+	std::cout << ", causing " << get_attack_dm() << " points of damage!" DEF << std::endl;
 	return;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if ((int)amount > 0)
-		set_hit_pt(get_hit_pt() - amount);
-	std::cout << "ClapTrap " << get_name() << " was hit and took ";
+		_hit_pt -= amount;
+	std::cout << MAG "ClapTrap " << get_name() << " was hit and took ";
 	std::cout << amount << " points of damage :(" << std::endl;
-	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
+	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" DEF << std::endl;
 	return;
 }
 
@@ -134,11 +114,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return;
 	}
 	if ((int)amount > 0)
-		set_hit_pt(get_hit_pt() + amount);
-	set_energy_pt(get_energy_pt() - 1);
-	std::cout << "ClapTrap " << get_name() << " was repared and has restored ";
+		_hit_pt += amount;
+	_energy_pt--;
+	std::cout << GRN "ClapTrap " << get_name() << " was repared and has restored ";
 	std::cout << amount << " hit points :)" << std::endl;
-	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" << std::endl;
+	std::cout << "leaving " << get_name() << " with " << get_hit_pt() << " HIT POINTS" DEF << std::endl;
 	return;
 }
 

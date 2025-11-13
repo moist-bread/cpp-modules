@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/06 15:46:05 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:38:53 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 
 	std::string getType(void) const;
 
-	void makeSound(void) const;
+	virtual void makeSound(void) const;
 	
 protected:
 	std::string type;

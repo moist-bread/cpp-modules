@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 15:28:40 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:56:39 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ public:
 	DiamondTrap(void);						// default constructor
 	DiamondTrap(std::string name);			// name constructor
 	DiamondTrap(DiamondTrap const &source);	// copy constructor
-	~DiamondTrap(void);					// destructor
+	~DiamondTrap(void);						// destructor
 
 	DiamondTrap &operator=(DiamondTrap const &source); // copy assignment operator overload
 	
+	// actions
 	void whoAmI(void);
 
 private:

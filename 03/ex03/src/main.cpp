@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/07 17:22:53 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:18:54 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,48 @@
 int main(void)
 {
 	std::cout << std::endl;
-	std::cout << CYN ">>┈┈┈>   SERENA, MY LOVE! 🔫🌱";
+	std::cout << CYN ">>┈┈┈>   NOW IT'S WEIRD! 🔫🌱";
+	std::cout << DEF << std::endl << std::endl;
+	std::cout << BBLU "what have we done...";
 	std::cout << DEF << std::endl << std::endl;
 	
-	ClapTrap a;
-	ClapTrap b("carl0s");
-	ScavTrap c("carl0oooos");
-	FragTrap d;
-	DiamondTrap e("julio");
+	ScavTrap a;
+	ClapTrap b("bert");
+	ScavTrap c("clyde");
+	FragTrap d("droid");
+	DiamondTrap e("jake");
+	DiamondTrap f;
+	
 	std::cout << a;
 	std::cout << b;
 	std::cout << c;
 	std::cout << d;
-	b.attack("carlitos (o mau)");
-	c.attack("carlitos (o mau)");
-	b.takeDamage(5);
-	b.beRepaired(2);
-	d.highFivesGuys();
-	e.attack("banana");
-	e.whoAmI();
-	std::cout << b;
 	std::cout << e;
+	std::cout << f;
+	
+	d.highFivesGuys();
+	b.attack("clyde");
+	c.takeDamage(20);
+	c.beRepaired(10);
+	
+	e.attack("bert");
+	b.takeDamage(20);
+	f.attack("bert");
+	b.takeDamage(20);
+	e.attack("bert");
+	b.takeDamage(20);
+	f.attack("bert");
+	b.takeDamage(20);
+	
+	b.beRepaired(10);
+	e.whoAmI();
+	f.whoAmI();
+	
+	std::cout << a;
+	std::cout << b;
+	std::cout << c;
+	std::cout << d;
+	std::cout << e;
+	std::cout << f;
 	return (0);
 }
