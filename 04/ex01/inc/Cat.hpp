@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/14 13:00:53 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:42:44 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 //-‵,┊ needed libs by class
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "Animal.hpp"
 
-// -->┊( DIAMONDTRAP )┊.´-★☆★
+// -->┊( CAT )┊.´-★☆★
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class Cat: public Animal
 {
 public:
-	DiamondTrap(void);						// default constructor
-	DiamondTrap(std::string name);			// name constructor
-	DiamondTrap(DiamondTrap const &source);	// copy constructor
-	~DiamondTrap(void);						// destructor
+	Cat(void);					// default constructor
+	Cat(Cat const &source);		// copy constructor
+	~Cat(void);					// destructor
 
-	DiamondTrap &operator=(DiamondTrap const &source); // copy assignment operator overload
+	Cat &operator=(Cat const &source); // copy assignment operator overload
 	
-	// actions
-	void whoAmI(void);
-
-private:
-	std::string _name;
+	void makeSound(void) const;
 };
-
-std::ostream &operator<<(std::ostream &out, DiamondTrap const &source);

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/13 15:38:41 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:13:25 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal(void) : type("Unidentified")
 {
-	std::cout << GRN "an Animal, more commonly identified as [ ";
+	std::cout << GRN "an Animal, of type [ ";
 	std::cout << getType() << " ] ";
 	std::cout << UCYN "has appeared";
 	std::cout << DEF << std::endl;
@@ -24,7 +24,7 @@ Animal::Animal(void) : type("Unidentified")
 Animal::Animal(Animal const &source)
 {
 	*this = source;
-	std::cout << GRN "an Animal, more commonly identified as [ ";
+	std::cout << GRN "an Animal, of type [ ";
 	std::cout << getType() << " ] ";
 	std::cout << UYEL "has been copy cloned";
 	std::cout << DEF << std::endl;
@@ -33,7 +33,7 @@ Animal::Animal(Animal const &source)
 
 Animal::~Animal(void)
 {
-	std::cout << GRN "an Animal, more commonly identified as [ ";
+	std::cout << GRN "an Animal, of type [ ";
 	std::cout << getType() << " ] ";
 	std::cout << URED "has ran away";
 	std::cout << DEF << std::endl;
@@ -56,6 +56,6 @@ std::string Animal::getType(void) const
 
 void Animal::makeSound(void) const
 {
-	std::cout << MAG "RAWRRRRRRRRR" << std::endl;
+	std::cout << MAG "RAWRRRRRRRRR" DEF << std::endl;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/13 14:03:21 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:30:08 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 {
-	std::cout << YEL "copy assignment operator overload has been called";
-	std::cout << DEF << std::endl;
 	if (this != &source)
 	{
 		_name = source.get_name();

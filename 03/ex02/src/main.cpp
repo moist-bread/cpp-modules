@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/10 17:51:23 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:34:30 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
 	std::cout << std::endl;
-	std::cout << CYN ">>┈┈┈>   REPETITIVE WORK 🔫🌱";
+	std::cout << CYN ">>┈┈┈>   REPETITIVE WORK 🤖💥";
 	std::cout << DEF << std::endl << std::endl;
 	std::cout << BBLU "a long lost relative has appeared";
 	std::cout << DEF << std::endl << std::endl;

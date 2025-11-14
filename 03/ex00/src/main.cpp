@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/10 17:01:20 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:44:02 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	std::cout << std::endl;
-	std::cout << CYN ">>┈┈┈>   AAAAAND... OPEN! 🔫🌱";
+	std::cout << CYN ">>┈┈┈>   AAAAAND... OPEN! 🤖💥";
 	std::cout << DEF << std::endl << std::endl;
 	std::cout << BBLU "a fake fight between fellow robots";
 	std::cout << DEF << std::endl << std::endl;

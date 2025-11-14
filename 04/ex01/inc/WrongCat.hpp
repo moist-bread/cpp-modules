@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/14 13:00:53 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 14:23:57 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 //-‵,┊ needed libs by class
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "WrongAnimal.hpp"
 
-// -->┊( DIAMONDTRAP )┊.´-★☆★
+// -->┊( WRONG CAT )┊.´-★☆★
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class WrongCat: public WrongAnimal
 {
 public:
-	DiamondTrap(void);						// default constructor
-	DiamondTrap(std::string name);			// name constructor
-	DiamondTrap(DiamondTrap const &source);	// copy constructor
-	~DiamondTrap(void);						// destructor
+	WrongCat(void);						// default constructor
+	WrongCat(WrongCat const &source);	// copy constructor
+	~WrongCat(void);					// destructor
 
-	DiamondTrap &operator=(DiamondTrap const &source); // copy assignment operator overload
+	WrongCat &operator=(WrongCat const &source); // copy assignment operator overload
 	
-	// actions
-	void whoAmI(void);
-
-private:
-	std::string _name;
+	void makeSound(void) const;
 };
-
-std::ostream &operator<<(std::ostream &out, DiamondTrap const &source);

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/13 14:04:54 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:29:32 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap(void): ClapTrap("nameless_clap_name"), FragTrap("namele
 	_name = "nameless";
 	_attack_dm = 30;
 	std::cout << GRN "the DiamondTrap named [ ";
-	std::cout << get_name() << " ] ";
+	std::cout << this->_name << " ] ";
 	std::cout << UCYN "has been constructed";
 	std::cout << DEF << std::endl;
 	return;
@@ -38,7 +38,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &source): ClapTrap(source), FragTrap(
 {
 	*this = source;
 	std::cout << GRN "the DiamondTrap named [ ";
-	std::cout << get_name() << " ] ";
+	std::cout << this->_name << " ] ";
 	std::cout << UYEL "has been copy created";
 	std::cout << DEF << std::endl;
 	return;
@@ -47,7 +47,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &source): ClapTrap(source), FragTrap(
 DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << GRN "the DiamondTrap named [ ";
-	std::cout << get_name() << " ] ";
+	std::cout << this->_name << " ] ";
 	std::cout << URED "has been scrapped for parts";
 	std::cout << DEF << std::endl;
 	return;
@@ -55,12 +55,9 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &source)
 {
-	std::cout << YEL "copy assignment operator overload has been called";
-	std::cout << DEF << std::endl;
 	if (this != &source)
 	{
 		this->_name = source._name;
-		_name = source.get_name();
 		_hit_pt = source.get_hit_pt();
 		_energy_pt = source.get_energy_pt();
 		_attack_dm = source.get_attack_dm();

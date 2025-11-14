@@ -6,12 +6,12 @@
 #    By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 12:30:07 by rduro-pe          #+#    #+#              #
-#    Updated: 2025/11/14 14:24:10 by rduro-pe         ###   ########.fr        #
+#    Updated: 2025/11/14 16:02:02 by rduro-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -->┊( NAMES )┊.´-★☆★
-NAME	=	polymorphism
+NAME	=	brainstorm
 
 # -->┊( COMMANDS AND FLAGS )┊.´-★☆★
 CXX	=	c++
@@ -23,7 +23,7 @@ SRC_DIR	=	src
 OBJ_DIR	=	obj
 
 # -->┊( SOURCE AND OBJS )┊.´-★☆★
-SOURCE	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SOURCE	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 SRC		=	$(addprefix $(SRC_DIR)/, $(SOURCE))
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SOURCE:.cpp=.o))
