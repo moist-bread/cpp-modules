@@ -18,7 +18,6 @@ WrongAnimal::WrongAnimal(void) : type("WrongUnidentified")
 	std::cout << getType() << " ] ";
 	std::cout << UCYN "has appeared";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &source)
@@ -28,7 +27,6 @@ WrongAnimal::WrongAnimal(WrongAnimal const &source)
 	std::cout << getType() << " ] ";
 	std::cout << UYEL "has been copy cloned";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongAnimal::~WrongAnimal(void)
@@ -37,7 +35,6 @@ WrongAnimal::~WrongAnimal(void)
 	std::cout << getType() << " ] ";
 	std::cout << URED "has ran away";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &source)
@@ -57,5 +54,4 @@ std::string WrongAnimal::getType(void) const
 void WrongAnimal::makeSound(void) const
 {
 	std::cout << MAG "RAWRRRRRRRRR" DEF << std::endl;
-	return;
 }

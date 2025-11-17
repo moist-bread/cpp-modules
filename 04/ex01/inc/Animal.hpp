@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/13 15:38:53 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/17 14:34:45 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Animal
 public:
 	Animal(void);					// default constructor
 	Animal(Animal const &source);	// copy constructor
-	~Animal(void);					// destructor
+	virtual ~Animal(void);			// destructor
 
 	Animal &operator=(Animal const &source); // copy assignment operator overload
 

@@ -19,7 +19,6 @@ WrongCat::WrongCat(void)
 	std::cout << getType() << " ] ";
 	std::cout << UCYN "has appeared";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongCat::WrongCat(WrongCat const &source) : WrongAnimal(source)
@@ -29,7 +28,6 @@ WrongCat::WrongCat(WrongCat const &source) : WrongAnimal(source)
 	std::cout << getType() << " ] ";
 	std::cout << UYEL "has been copy cloned";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongCat::~WrongCat(void)
@@ -38,7 +36,6 @@ WrongCat::~WrongCat(void)
 	std::cout << getType() << " ] ";
 	std::cout << URED "has ran away";
 	std::cout << DEF << std::endl;
-	return;
 }
 
 WrongCat &WrongCat::operator=(WrongCat const &source)
@@ -53,5 +50,4 @@ WrongCat &WrongCat::operator=(WrongCat const &source)
 void WrongCat::makeSound(void) const
 {
 	std::cout << YEL "MEOWWWWWWWWWWWW" DEF << std::endl;
-	return;
 }
