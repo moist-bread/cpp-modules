@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/17 15:48:09 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:52:39 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat::Cat(void)
 	std::cout << DEF << std::endl;
 }
 
-Cat::Cat(Cat const &source) : Animal(source)
+Cat::Cat(Cat const &source) : Animal(source), _brain(NULL)
 {
 	*this = source;
 	std::cout << GRN "a Cat, of type [ ";
@@ -47,7 +47,8 @@ Cat &Cat::operator=(Cat const &source)
 	if (this != &source)
 	{
 		type = source.getType();
-		*_brain = *(source.get_brain());
+		delete _brain;
+		_brain = new Brain(*source.get_brain());
 	}
 	return (*this);
 }
@@ -65,18 +66,11 @@ void Cat::makeSound(void) const
 void Cat::think(void) const
 {
 	std::cout << YEL "type: " << type << std::endl;
-	std::cout << "ideas:" << std::endl;
-	for (int i = 0; !_brain->ideas[i].empty() && i < 100; i++)
-		std::cout << _brain->ideas[i] << std::endl;
+	_brain->display_ideas();
+	std::cout << DEF << std::endl;
 }
 
 void Cat::have_an_idea(std::string value)
 {
-	int i = 0;
-
-	while (!_brain->ideas[i].empty() && i < 100)
-		i++;
-	if (i == 100)
-		i = 0;
-	_brain->ideas[i] = value;
+	_brain->add_idea(value);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/18 13:49:42 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/14 14:21:31 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 #define BLU "\e[0;34m"
 #define MAG "\e[0;35m"
 #define CYN "\e[0;36m"
-#define CYNC "\e[9;36m"
 
 #define URED "\e[4;31m"
 #define UYEL "\e[4;33m"
@@ -32,22 +31,21 @@
 
 #define DEF "\e[0m"
 
-// -->┊( BRAIN )┊.´-★☆★
+// -->┊( WRONG ANIMAL )┊.´-★☆★
 
-class Brain
+class WrongAnimal
 {
 public:
-	Brain(void);				// default constructor
-	Brain(Brain const &source); // copy constructor
-	~Brain(void);				// destructor
+	WrongAnimal(void);						// default constructor
+	WrongAnimal(WrongAnimal const &source);	// copy constructor
+	~WrongAnimal(void);						// destructor
 
-	Brain &operator=(Brain const &source); // copy assignment operator overload
+	WrongAnimal &operator=(WrongAnimal const &source); // copy assignment operator overload
 
-	int idea_amount;
-	void add_idea(std::string value);
-	void display_ideas(void) const;
+	std::string getType(void) const;
 
-private:
-	static const int _max_ideas = 100;
-	std::string ideas[_max_ideas];
+	void makeSound(void) const;
+	
+protected:
+	std::string type;
 };

@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:37:14 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/18 13:52:34 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:16:03 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::Dog(void)
 	std::cout << DEF << std::endl;
 }
 
-Dog::Dog(Dog const &source): Animal(source), _brain(NULL)
+Dog::Dog(Dog const &source): AAnimal(source), _brain(NULL)
 {
 	*this = source;
 	std::cout << GRN "a Dog, of type [ ";

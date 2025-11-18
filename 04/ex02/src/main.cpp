@@ -6,7 +6,7 @@
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:01:53 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/18 12:42:42 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:28:51 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,12 @@
 int main(void)
 {
 	std::cout << std::endl;
-	std::cout << CYN ">>┈┈┈>   I " CYNC "DON'T" CYN " WANT TO SET THE WORLD ON FIRE 🐈🐕";
+	std::cout << CYN ">>┈┈┈>   ABSTRACT CLASS 🐈🐕";
 	std::cout << DEF << std::endl << std::endl;
-	
-	int amount = 6;
-	if (amount < 2)
-		return (2);
-	
-	Animal *zoo[amount];
-	for(int i = 0; i < amount / 2; i++)
-		zoo[i] = new Dog();
-	for(int i = amount / 2; i < amount; i++)
-		zoo[i] = new Cat();
-	
-	for(int i = 0; i < amount; i++)
-		delete zoo[i];
 		
-	std::cout << std::endl << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
+	// const AAnimal* i = new AAnimal();
 
 	delete j;
 	delete i;
@@ -43,6 +30,7 @@ int main(void)
 	std::cout << std::endl << std::endl;
 	Dog dog;
 	Cat cat;
+	// AAnimal animal;
 	
 	cat.have_an_idea("miau miau miau");
 	Cat second_cat = cat;

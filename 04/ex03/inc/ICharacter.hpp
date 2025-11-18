@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduro-pe <rduro-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:22:35 by rduro-pe          #+#    #+#             */
-/*   Updated: 2025/11/18 13:49:42 by rduro-pe         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:35:19 by rduro-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 //-‵,┊ needed libs by class
 #include <iostream>
+#include "AMateria.hpp"
 
 //-‵,┊ color defines
 
@@ -32,22 +33,14 @@
 
 #define DEF "\e[0m"
 
-// -->┊( BRAIN )┊.´-★☆★
+// -->┊( ICHARACTER )┊.´-★☆★
 
-class Brain
+class ICharacter
 {
 public:
-	Brain(void);				// default constructor
-	Brain(Brain const &source); // copy constructor
-	~Brain(void);				// destructor
-
-	Brain &operator=(Brain const &source); // copy assignment operator overload
-
-	int idea_amount;
-	void add_idea(std::string value);
-	void display_ideas(void) const;
-
-private:
-	static const int _max_ideas = 100;
-	std::string ideas[_max_ideas];
+	virtual ~ICharacter() {}
+	virtual std::string const &getName() const = 0;
+	virtual void equip(AMateria *m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter &target) = 0;
 };
